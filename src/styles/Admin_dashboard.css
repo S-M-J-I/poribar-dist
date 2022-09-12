@@ -1,0 +1,133 @@
+:root{
+    --primary-color: #1e88e5;
+    --secondary-color: #f4511e;
+}
+
+.admin-dashboard__left-sidebar{
+    background-color: var(--primary-color);
+    color: white;
+    height: 100vh;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.admin-dashboard__left-sidebar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.admin-dashboard__left-sidebar li{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+}
+.admin-dashboard__left-sidebar li:hover{
+    background-color: var(--secondary-color);
+    color: white;
+}
+.admin-dashboard__left-sidebar a{
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+.admin-dashboard__left-sidebar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+svg{
+    vertical-align: baseline!important;
+}
+.admin-dashboard__left-sidebar svg{
+    margin-right: 10px;
+}
+.admin-dashboard__center-pane{
+    margin-left: 200px;
+    padding: 0px 10px;
+}
+.admin-user-widget__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.admin-user-widget__header h2{
+    margin: 0;
+    font-size: smaller;
+}
+.admin-user-widget__body__graph{
+    width: 100%;
+    height: 400px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.admin-user-widget{
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 0 20px;
+    width: 45%;
+}
+.admin-user-widget__body__heading__item h4{
+    /* margin: 0; */
+    font-size: 15px;
+}
+.admin-user-widget__body__heading__item h5{
+    /* margin: 0; */
+    text-align: left;
+    font-size: 10px;
+}
+.admin-user-widget__header h3 {
+    font-size: 15px;
+}
+text{
+    font-size: 10px;
+}
+.admin-user-widget__body__item{
+    height: 400px;
+    overflow-y: auto;
+}
+.admin-transaction h3{
+    font-size: 15px;
+    color: var(--primary-color);
+}
+.admin-transaction{
+    /* background-color: var(--primary-color); */
+    /* margin-top: 10px; */
+    padding: 10px 5px;
+    padding-top: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.admin-transaction_from svg{
+    padding-right: 10px;
+}
+.data_field{
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--secondary-color)!important;
+}
+.admin-user-widget{
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+}
+.admin-top-bar__right__button{
+    height: 40px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.admin-top-bar{
+    height: 100px;
+}
+.divider{
+    width: 20px;
+}
+.admin-left-sidebar__menu{
+    margin-top: 70px;
+}

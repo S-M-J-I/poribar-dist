@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root{
+    --green: #00c773;
+    --darkgreen: #008c4d;
+}
+
+.icons {
+    color: var(--green);
+    font-size: 3rem;
+}
+
+.about {
+    margin: 10px;
+}
+
+.title-text {
+    font-family: 'Roboto', sans-serif;
+    color: var(--green);
+    font-weight: bolder;
+    text-align: left;
+    margin-left: 5%;
+}
+
+.title-p {
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    margin-left: 5%;
+    font-size: 20px;
+}

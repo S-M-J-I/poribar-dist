@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap');
+
+.imgrow {
+    background-image: url("../resources/images/photo.jpg");
+    height: 50rem;
+    background-repeat: no-repeat;
+}
+
+.text-on-image{
+    position: absolute;
+    bottom: 200px;
+    left: 200px;
+    font-family: 'Roboto', sans-serif;
+    color: aliceblue;
+}
+
+.poribar-font{
+    font-size: 60px;
+    word-spacing: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.poribar-text{
+    text-align: left;
+    font-size: 30px;
+}

@@ -1,0 +1,8 @@
+.review {
+    background-color: var(--green);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    height: 50vh;
+    padding-top: 60px;
+    font-size: 1.2rem;
+}

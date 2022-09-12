@@ -1,0 +1,50 @@
+:root{
+    --maincolor: #00C773;
+}
+.pl-3{
+    padding-left: 3px;
+}
+.container-service img{
+width: 100px;
+height: 100px;
+}
+.maincolortext{
+    color:var(--maincolor);
+}
+.maincolorbg{
+    background-color:var(--maincolor);
+}
+.container-service button{
+    border: none;
+    border-radius: 7px;
+    color:white;
+   
+}
+.facilitiesheader{
+    border-bottom: 1px solid var(--maincolor) ;
+}
+.bgwhite{
+    background-color: white;
+}
+.bggrayish{
+    background-color: #cdcdcdae;
+}
+.container-service{
+    border-bottom:.5px solid var(--maincolor) ;
+    padding-bottom: 20px;
+    margin-right: 20px;
+}
+.servicedescription{
+    
+    
+    height: 95px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-bottom: 30px;
+}
+
+
+.container-Facilities{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(27rem,1fr));
+}
