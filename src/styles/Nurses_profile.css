@@ -1,0 +1,89 @@
+.nurses_profile__container{
+    width: 50%;
+}
+.nurses_profile_header__cover_image{
+    height: 300px;
+    overflow: hidden;
+}
+.nurses_profile_header__cover_image > img{
+    width: 100%;
+    transform: translateY(-20%);
+}
+.nurses_profile_header__profile_image{
+    height: 0;
+}
+.nurses_profile_header__profile_image > img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    background-color: antiquewhite;
+    transform: translateY(-50%);
+    /* margin-left: 20px; */
+}
+.nurses_profile_header__btns{
+    height: 100px;
+}
+.nurses_profile_rating_star{
+    color: #f10fa6;
+    align-items: center;
+}
+/* .nurses_profile_header__other__rating{
+    height: 20px;
+} */
+.nurses_profile_header__btns__appointment{
+    color: rgb(1, 165, 69);
+    border-radius: 5px;
+    border: 2px solid rgb(1, 122, 52);
+    background-color: white;
+}
+.nurses_profile_header__btns__review{
+    border: none;
+    color:rgb(1, 122, 52);
+    margin-left: 10px;
+    background-color: white;
+}
+.nurses_profile_header{
+    background-color: white;
+    padding-bottom: 20px;
+    border-radius: 17px;
+}
+.nurses_profile_header__btns_btn_container{
+    font-size: 17px;
+}
+.nurses_profile_header__other__rating  span{
+    font-size: 14px;
+    color:rgba(0, 0, 0, 0.555)
+}
+.nurse_container{
+    background-color: white;
+    padding: 20px;
+    border-radius: 17px;
+    margin: 20px 0;
+}
+.nurses_profile_experience__icon img{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
+.nurses_profile_experience__body *{
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+.nurses_profile_experience__body__company{
+    font-size: 15px;
+    font-weight: 600;
+}
+.nurses_profile_experience__body__position{
+    font-size: 20px;
+    font-weight: 600;
+}
+.nurses_profile_experience__body__date, .nurses_profile_experience__body__location{
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.555);
+}
+.nurses_profile_experience__body{
+    margin-left: 15px;
+}
