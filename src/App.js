@@ -13,6 +13,7 @@ import firebase from './firebase/firebase'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import All_events from './components/Eventpage/All_events';
 import Admin_dashboard from './components/Admin_dashboard/Admin_dashboard';
+import Nurse_Profile from './components/Nurses_Profile/Nurse_Profile';
 import './styles/Admin_dashboard.css';
 function App() {
   const [loginState, setLoginState] = useState(false)
@@ -38,8 +39,9 @@ function App() {
           </Route>
           <Route path='/dashboard' element={<Admin_dashboard setCurrentRoute={setCurrentRoute} />} />
           <Route path='/events' element={<All_events />}></Route>
+          <Route path='/nurse_profile' element={<Nurse_Profile />}></Route>
           <Route path='/' element={<Landingpage />}>
-            {/* <Landingpage /> */}
+
           </Route>
 
         </Routes>
