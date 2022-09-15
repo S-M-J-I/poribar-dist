@@ -21,8 +21,8 @@ function Admin_left_sidebar(props) {
                             Users
                         </a>
                     </li>
-                    <li>
-                        <a href='#'>
+                    <li onClick={()=> props.setPanel('transaction_search')}>
+                        <a>
                             <Fa.FaBook />
                            Transactions
                         </a>

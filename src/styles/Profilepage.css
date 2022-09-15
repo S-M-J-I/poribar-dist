@@ -1,0 +1,65 @@
+:root{
+    --maincolor: #00C773;
+}
+.maincolortext{
+    color:var(--maincolor);
+}
+.profilepage{
+    background-color: rgb(255, 255, 255);
+    width: 1550px;
+    height: 650px;
+    border-radius: 25px;
+    
+}
+
+.profilepage-bg{
+    background-color: #bebcbcae;
+    width: 1706px;
+    height: 800px;
+    padding-top: 78px;
+}
+.dp img{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profilepicchangebtn{
+    background-color: #00C773!important;
+    border: 0;
+    outline: 0;
+}
+
+.dp-part{
+    width: 1000px;
+    border-right:.5px solid  #bebcbcae ;
+}
+
+.profilepicchange{
+    padding-top: 100px;
+    
+}
+
+.infoupdateform{
+    padding-top: 100px;
+    padding-left: 150px;
+}
+.infoupdateform input{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: .5px solid rgb(156, 156, 156);
+    width: 600px;
+    height: 20px;
+}
+
+.infoupdateform p{
+    padding-top: 20px;
+}
+
+.submitupdate button{
+    background-color: #00C773;
+    width: 200px;
+    border-radius: 25px;
+}
