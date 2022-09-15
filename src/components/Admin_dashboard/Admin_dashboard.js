@@ -3,10 +3,13 @@ import Admin_left_sidebar from './Admin_left_sidebar'
 import Admin_center_pane from './Admin_center_pane'
 // import firebase from '../../firebase/firebase'
 import Admin_user_search from './Admin_user_search'
+import Admin_transaction_search from './Admin_transaction_search'
 // import { BrowserRouter,Routes, Route } from 'react-router-dom'
 function renderItem(panel){
   if(panel === 'user_search'){
     return <Admin_user_search />
+  }else if(panel==='transaction_search'){
+    return <Admin_transaction_search />
   }
   return <Admin_center_pane />
 }
