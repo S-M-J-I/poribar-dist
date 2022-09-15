@@ -1,7 +1,7 @@
 import React from 'react'
 import * as Fa from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-function Admin_left_sidebar() {
+function Admin_left_sidebar(props) {
     return (
         <div className='admin-left-sidebar'>
             <div className='admin-left-sidebar__logo'>
@@ -9,40 +9,34 @@ function Admin_left_sidebar() {
             </div>
             <div className='admin-left-sidebar__menu'>
                 <ul>
-                    <li>
-                        <a href='#'>
+                    <li onClick={()=> props.setPanel('dashboard')}>
+                        <a >
                             <Fa.FaHome />
-                            <span>Dashboard</span>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li onClick={()=> props.setPanel('user_search')}>
+                        <a >
+                            <Fa.FaUser />
+                            Users
                         </a>
                     </li>
                     <li>
                         <a href='#'>
-                            <Fa.FaUser />
-                            <span>Users</span>
+                            <Fa.FaBook />
+                           Transactions
                         </a>
                     </li>
                     <li>
                         <a href='#'>
-                            <Fa.FaUser />
-                            <span>Orders</span>
+                            <Fa.FaRegAddressBook />
+                            Reports
                         </a>
                     </li>
                     <li>
                         <a href='#'>
-                            <Fa.FaUser />
-                            <span>Products</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href='#'>
-                            <Fa.FaUser />
-                            <span>Reports</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href='#'>
-                            <Fa.FaUser />
-                            <span>Settings</span>
+                            <Fa.FaCog />
+                            Settings
                         </a>
                     </li>
                 </ul>
