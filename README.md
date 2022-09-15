@@ -7,7 +7,7 @@ run the following commands
 > **npm run start**
 
 
-## endpoints
+## Endpoints
 > **landing page: /**
 >
 > **admin dashboard: /dashboard**
