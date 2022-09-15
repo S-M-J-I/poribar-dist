@@ -2,7 +2,7 @@ import React from 'react'
 
 function Experience(props) {
   return (
-    <div className='nurses_profile_experience d-flex'>
+    <div className='nurses_profile_experience d-flex py-3'>
         <div className='nurses_profile_experience__icon'>
             <img src='https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fHBlcnNvbnxlbnwwfHwwfHw%3D&w=1000&q=80' alt='experience_icon' />
         </div>
