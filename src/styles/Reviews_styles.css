@@ -1,0 +1,26 @@
+.reviews{
+    width: 500px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    padding: 20px;
+
+    
+}
+.nurse_review_header{
+    /* color: rgb(139, 140, 140); */
+    border-top: .5px solid rgb(215, 215, 215);
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+.nurse_reviews{
+    text-align: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: rgba(210, 210, 210, 0.475);
+}
+
