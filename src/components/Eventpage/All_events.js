@@ -50,7 +50,7 @@ export default function All_events() {
         )
     }
     return (
-        <div >
+        <div className="events_page">
             <h1 className="m-auto text-center maincolorbg text-white eventheader py-4">
                 Events
             </h1>
