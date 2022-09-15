@@ -37,12 +37,20 @@
     border-radius: 5px;
     border: 2px solid rgb(1, 122, 52);
     background-color: white;
+    
+}
+.nurses_profile_header__btns__appointment:hover{
+    background-color: #d7d7d7;
 }
 .nurses_profile_header__btns__review{
     border: none;
     color:rgb(1, 122, 52);
     margin-left: 10px;
     background-color: white;
+    border-radius: 5px;
+}
+.nurses_profile_header__btns__review:hover{
+    background-color: #d7d7d7;
 }
 .nurses_profile_header{
     background-color: white;
@@ -62,6 +70,8 @@
     border-radius: 17px;
     margin: 20px 0;
 }
+
+
 .nurses_profile_experience__icon img{
     height: 50px;
     width: 50px;
@@ -86,4 +96,120 @@
 }
 .nurses_profile_experience__body{
     margin-left: 15px;
+}
+
+.nurses_profile_experience{
+    border-top:.25px solid rgb(228, 228, 228) ;
+}
+.nurses_profile_education{
+    border-top:.25px solid rgb(228, 228, 228) ;
+}
+.nurse_profile_experience_body{
+    overflow-y: hidden;
+    max-height: 500px;
+}
+
+.nurse_profile_experience_collapse{
+    height: 50px;
+    background-color: #b6b4b5;
+    border-radius: 0px 0px 17px 17px;
+    text-align: center;
+    color: #ffffff;
+
+
+}
+.nurse_container_bottom{
+    padding: 20px 20px 0px 20px;
+    margin-bottom: 0;
+    border-radius: 17px 17px 0px 0px ;
+    
+}
+
+
+.nurses_profile_education__icon img{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
+
+.nurses_profile_education__body *{
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    
+}
+.nurses_profile_education__body__company{
+    font-size: 15px;
+    font-weight: 600;
+}
+.nurses_profile_education__body__position{
+    font-size: 20px;
+    font-weight: 600;
+}
+.nurses_profile_education__body__date, .nurses_profile_experience__body__location{
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.555);
+}
+.nurses_profile_education__body{
+    margin-left: 15px;
+    
+}
+
+.nurse_profile_education_body{
+    overflow-y: hidden;
+    max-height: 500px;
+}
+
+.nurse_profile_education_collapse{
+    height: 50px;
+    background-color: #b6b4b5;
+    border-radius: 0px 0px 17px 17px;
+    text-align: center;
+    color: #ffffff;
+}
+
+
+
+.nurses_profile_certificates__icon img{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
+
+.nurses_profile_certificates__body *{
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    
+}
+.nurses_profile_certificates__body__company{
+    font-size: 15px;
+    font-weight: 600;
+}
+.nurses_profile_certificates__body__position{
+    font-size: 20px;
+    font-weight: 600;
+}
+.nurses_profile_certificates__body__date, .nurses_profile_experience__body__location{
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.555);
+}
+.nurses_profile_certificates__body{
+    margin-left: 15px;
+    
+}
+
+.nurse_profile_certificates_body{
+    overflow-y: hidden;
+    max-height: 500px;
+}
+
+.nurse_profile_certificates_collapse{
+    height: 50px;
+    background-color: #b6b4b5;
+    border-radius: 0px 0px 17px 17px;
+    text-align: center;
+    color: #ffffff;
+
+
 }

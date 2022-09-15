@@ -1,0 +1,46 @@
+.nurse_appointment_form_details{
+    text-align: left;
+    background-color: rgba(181, 180, 180, 0.475); 
+    width: 100vw;
+    left: 0;
+   position:fixed;
+   overflow-x:hidden;
+   z-index: 100;
+   top: 0;
+   bottom:0;
+   top: 47px;
+   
+}
+.nurse_appointment_form_details_discount input{
+    width: 50%;
+}
+.nurse_appointment_form_details_discount label{
+    width: 50%;
+}
+.nurse_appointment_form_details_total_price{
+    background-color: rgb(236, 220, 250);
+    border-radius: 6px;
+}
+.nurse_appointment_form_details_width{
+    width: 50%;
+}
+.nurse_appointment_form_details_edit_icon{
+    color: blueviolet!important;
+    padding-left: 20px;
+}
+.nurse_appointment_form_details_input_box{
+    width: 292px;
+}
+.nurse_appointment_form_details_text_weight{
+    font-weight: 500;
+}
+.nurse_appointment_form_details_main_container{
+    background-color: rgb(255, 255, 255);
+    width: 40%;
+    /* padding: 30px; */
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 10px;
+}
