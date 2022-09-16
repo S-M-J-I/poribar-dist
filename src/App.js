@@ -17,6 +17,8 @@ import Nurse_Profile from './components/Nurses_Profile/Nurse_Profile';
 import Nurse_Appointment from './components/Nurse_Appointment/Nurse_Appointment';
 import Nurse_Appointment_form_Details from './components/Nurse_Appointment_Form_Details/Nurse_Appointment_Form_Details.js';
 import Reviews from './components/Reviews/Reviews';
+import Nurse_Profile_Review_Form from './components/Nurse_Profile_Review_Form/Nurse_Profile_Review_Form';
+import Nurse_Profile_Review_Form_ratings from './components/Nurse_Profile_Review_Form/Block/Nurse_Profile_Review_Form_ratings';
 import './styles/Admin_dashboard.css';
 import Event_Single_page from './components/Eventpage/Event_Single_page/Event_Single_page';
 import Dashboard from './components/User_dashboard/Dashboard';
@@ -54,6 +56,7 @@ function App() {
           <Route path='/profile' element={<Profilepage />}></Route>
           <Route path='/all_nurses' element={<All_Nurses_Profile />}></Route>
           <Route path='/' element={<Landingpage />}></Route>
+          <Route path='/nurse_profile_review_form' element={<Nurse_Profile_Review_Form />}></Route>
         </Routes>
       </BrowserRouter>
 
