@@ -4,7 +4,7 @@ function UserInfoWidget(props) {
     return (
         <div className='row'>
             <div className='col-sm'>
-                <img style={{ width: '50%', borderRadius: '300px' }} src={`data:image/jpg;base64,${props.user.avatar}`} alt='userimage' />
+                <img style={{ width: '200px', height: '200px', objectFit: 'cover', borderRadius: '300px' }} src={`data:image/jpg;base64,${props.user.avatar}`} alt='userimage' />
                 <br />
                 <br />
                 <h6 style={{ color: 'var(--darkgreen)' }}><strong>Patient</strong></h6>

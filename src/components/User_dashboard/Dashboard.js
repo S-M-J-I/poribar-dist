@@ -19,9 +19,9 @@ function Dashboard(props) {
                     <Sidebar />
                 </div>
                 <div className='col-sm-8'>
-                    <TopRow type={props.type} />
+                    <TopRow user={props.user} />
                     {showBalance()}
-                    <AppointmentsRow type={props.type} />
+                    <AppointmentsRow user={props.user} />
                 </div>
             </div>
         </div>

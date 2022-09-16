@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { getAuth } from "firebase/auth"
+import firebase from '../../../firebase/firebase'
+import { Spinner } from 'react-bootstrap';
 
 function open_file_dialogue(e) {
     e.preventDefault();
@@ -12,7 +15,38 @@ function AddReport(props) {
     const [loading, setLoading] = useState(false)
     const [editor, setEditor] = useState(null)
     const [data, setData] = useState('')
+    const [nurse, setNurse] = useState(null)
     const { id } = useParams()
+
+
+    useEffect(() => {
+        let currUser = ''
+        try {
+            currUser = getAuth(firebase).currentUser.uid
+        } catch (err) {
+            // console.log(err)
+            // window.location = '/'
+        }
+
+        if (currUser) {
+            fetch(`http://localhost:3030/api/auth/nurse/profile/${currUser}`, {
+                method: 'post',
+                mode: 'cors'
+            }).then(res => res.json())
+                .then((data) => {
+                    setNurse(data)
+                    // console.log(data._id)
+                    setLoading(false)
+                })
+                .catch(err => console.log(err))
+                .catch((err) => {
+                    console.log(err)
+                })
+        } else {
+            console.log('no nurse')
+        }
+    }, [nurse])
+
 
     const inputHandler = (event, editor) => {
         console.log(editor.getData());
@@ -29,8 +63,8 @@ function AddReport(props) {
         const formData = new FormData(form)
         setLoading(true)
         formData.append("content", data)
-        formData.append("patient", "6314d4480df029ec1e5d1cf2")
-        formData.append("nurse", "631b3d7587ff3f708b146792")
+        formData.append("patient", id)
+        formData.append("nurse", nurse._id)
         console.log(formData.get("content"))
 
         fetch(`http://localhost:3030/api/reports/add/${id}`, {
@@ -77,7 +111,22 @@ function AddReport(props) {
     }, [])
 
 
+    const declareTimeout = () => {
+        setTimeout(() => {
+            alert('Timeout')
+            console.log('timed out')
+            window.location = '/'
+        }, 15000)
+    }
 
+    if (!nurse) {
+        return (
+            <div style={{ minHeight: '100vh' }}>
+                <Spinner animation="border" variant="success" />
+                {declareTimeout()}
+            </div>
+        )
+    }
 
     return (
         <div style={{ margin: '5%' }} className='d-flex align-items-center justify-content-center'>

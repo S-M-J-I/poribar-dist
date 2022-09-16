@@ -3,6 +3,19 @@ import { Link } from "react-router-dom";
 import firebase from '../../firebase/firebase'
 import { getAuth } from "firebase/auth";
 export default function Navbar(props) {
+
+  { console.log(props) }
+
+  const selectDashboardType = (props) => {
+    if (props.user.type === 'user') {
+      return <Link to='/user/dashboard' className="nav-link active">Dashboard</Link>
+    } else if (props.user.type === 'nurse') {
+      return <Link to='/nurse/dashboard' className="nav-link active">Dashboard</Link>
+    } else {
+      return <Link to='/dashboard' className="nav-link active">Dashboard</Link>
+    }
+  }
+
   return (
     <>
 
@@ -45,6 +58,8 @@ export default function Navbar(props) {
                   const auth = getAuth(firebase);
                   auth.signOut();
                   props.setLoginState(false)
+                  props.setCurrUser(null)
+                  window.location = '/'
                 }}>Sign Out</button>
               }
             </ul>

@@ -53,7 +53,7 @@ function ReportsDashboard() {
 
     const loadAddReport = (user) => {
         console.log(user.type)
-        if (user.type === 'user') {
+        if (user.type === 'nurse') {
             return (
                 <div style={{ textAlign: 'right' }}>
                     <a href={`/reports/add/${user._id}`} className='btn btn-primary'>+</a>
