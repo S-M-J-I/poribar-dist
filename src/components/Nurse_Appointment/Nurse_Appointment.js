@@ -7,14 +7,6 @@ import Nurse_Appointment_Form_Details from '../Nurse_Appointment_Form_Details/Nu
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 export default function Nurse_Appointment(props){
-    const exp = [{
-        nursename: "Rajina Sultana",
-        basicamount:"1000",
-        hospitalname:"Lab Aid Hospital",
-        rating: "4.5",
-        description:"sometext",
-        category:"Nursing Service"
-    }]
     const [date, setDate] = useState(new Date());
 
     const [shownurse_appointment_form_details, setShownurse_appointment_form_details] = useState(false);
