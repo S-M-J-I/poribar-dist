@@ -1,0 +1,118 @@
+.nurse_profile_review_form{
+    text-align: left;
+    background-color: rgba(181, 180, 180, 0.475); 
+    width: 100vw;
+    left: 0;
+   position:fixed;
+   overflow-y:scroll;
+   overflow-x:hidden;
+   z-index: 100;
+   top: 0;
+   bottom:0;
+   padding-top: 100px;
+   padding-bottom: 50px;
+
+    
+}
+.nurse_profile_review_form_img img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.nurse_profile_review_form_container{
+    width: 60%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 7px;
+}
+.nurse_profile_review_form_overall_rating{
+    width: 50%;
+
+}
+.nurse_profile_review_form_header_container{
+    width: 50%;
+}
+.nurse_profile_review_form_overall_rating_starts{
+    width: 100%;
+    display: flex!important;
+    justify-content: center!important;
+}
+/* .react-stars-wrapper-09463053914052231{
+    padding-left: 100px;
+} */
+
+.Nurse_Profile_Review_Form_ratings_container{
+    width: 50%;
+
+}
+/* .Nurse_Profile_Review_Form_ratings_container_radio_button {
+    height: 25px;
+    width: 25px;
+    accent-color: rgb(174, 245, 130);
+    border:2px solid darkgray;
+    -webkit-appearance:none;
+}
+.Nurse_Profile_Review_Form_ratings_container_radio_button input[type='radio']:checked{
+    color:green;
+  } */
+
+  .Nurse_Profile_Review_Form_ratings_container input[type='radio'] {
+    -webkit-appearance:none;
+    width:20px;
+    height:20px;
+    border:1px solid rgba(0, 0, 0, 0.779);
+    border-radius: 5px;
+    outline:none;
+    
+  }
+  
+  .Nurse_Profile_Review_Form_ratings_container input[type='radio']:hover {
+    
+  }
+  
+  .Nurse_Profile_Review_Form_ratings_container input[type='radio']:before {
+    content:'';
+    display:block;
+    width:100%;
+    height:100%;
+    /* margin: 20% auto;     */
+        
+  }
+  .Nurse_Profile_Review_Form_ratings_container input[type='radio']:checked:before {
+    background:rgb(109, 1, 129);
+    
+  }
+  .Nurse_Profile_Review_Form_ratings_container_radio_button_spacing{
+    width: 20%;
+  }
+  .Nurse_Profile_Review_Form_ratings_container_header{
+    width: 50%;
+  }
+
+  .Nurse_Profile_Review_Form_ratings_container_header_rating_title{
+    width: 20%;
+  }
+  .Nurse_Profile_Review_Form_ratings_add_comment{
+    padding-left: 65px;
+    padding-right: 65px;
+  }
+  .Nurse_Profile_Review_Form_ratings_button button{
+    width: 100px;
+    background-color: #00c773!important;
+    
+  }
+
+  .nurse_profile_review_form_container p{
+    font-size: 60px;
+    color:  #00C773;
+  }
+  .maintextcolor{
+    color:  #00C773;
+  }
+  .Nurse_Profile_Review_Form_body{
+    background-color: rgb(231, 231, 231);
+   border-radius: 10px;
+  }
+
+ 

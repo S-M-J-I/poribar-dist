@@ -9,7 +9,6 @@ import 'react-calendar/dist/Calendar.css';
 export default function Nurse_Appointment(){
     const exp = [{
         nursename: "Rajina Sultana",
-        duration:"3",
         basicamount:"1000",
         hospitalname:"Lab Aid Hospital",
         rating: "4.5",
@@ -17,6 +16,7 @@ export default function Nurse_Appointment(){
         category:"Nursing Service"
     }]
     const [date, setDate] = useState(new Date());
+
     const [shownurse_appointment_form_details, setShownurse_appointment_form_details] = useState(false);
 
     useEffect(()=>{
@@ -38,6 +38,9 @@ export default function Nurse_Appointment(){
     }, 
     [shownurse_appointment_form_details]
     )
+
+
+    
     return(
         
         <div className='d-flex justify-content-center align-items-center nurse_appointment'>
