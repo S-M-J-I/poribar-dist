@@ -25,7 +25,11 @@ export default function Navbar(props) {
                 <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                   <li><Link to='/nurse_profile' className="dropdown-item" style={{ textDecoration: 'none', color: 'black' }}>Nurses Profile</Link></li>
                   <li><hr className="dropdown-divider" /></li>
-                  <li><a className="dropdown-item" href="/">Medical Report Tracker</a></li>
+                  <li>
+                    <Link to='/reports' className="dropdown-item" style={{ textDecoration: 'none', color: 'black' }}>
+                      Medical Report Tracker
+                    </Link>
+                  </li>
                   <li><hr className="dropdown-divider" /></li>
                   <li><a className="dropdown-item" href="/">Review Nurses</a></li>
                   <li><hr className="dropdown-divider" /></li>

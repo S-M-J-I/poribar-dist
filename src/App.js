@@ -17,7 +17,10 @@ import Nurse_Profile from './components/Nurses_Profile/Nurse_Profile';
 import Nurse_Appointment from './components/Nurse_Appointment/Nurse_Appointment';
 import Nurse_Appointment_form_Details from './components/Nurse_Appointment_Form_Details/Nurse_Appointment_Form_Details.js';
 import Reviews from './components/Reviews/Reviews';
+import ReportsDashboard from './components/Reports/ReportsDashboard';
+import SingleReport from './components/Reports//components/SingleReport'
 import './styles/Admin_dashboard.css';
+import AddReport from './components/Reports/components/AddReport';
 function App() {
   const [loginState, setLoginState] = useState(false)
   const [currentRoute, setCurrentRoute] = useState('home')
@@ -43,6 +46,9 @@ function App() {
           <Route path='/dashboard' element={<Admin_dashboard setCurrentRoute={setCurrentRoute} />} />
           <Route path='/events' element={<All_events />}></Route>
           <Route path='/nurse_profile' element={<Nurse_Profile />}></Route>
+          <Route path='/reports/report/:id' element={<SingleReport />} />
+          <Route path='/reports/add/:id' element={<AddReport />} />
+          <Route path='/reports' element={<ReportsDashboard />} />
           <Route path='/' element={<Landingpage />}></Route>
           <Route path='/reviews' element={<Reviews />}></Route>
           <Route path='/nurse_appointment' element={<Nurse_Appointment />}></Route>
