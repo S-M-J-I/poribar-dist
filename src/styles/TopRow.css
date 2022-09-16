@@ -1,0 +1,29 @@
+:root{
+    --green: #00c773;
+    --darkgreen: #008c4d;
+  }
+
+.custom-btn {
+    background-color: var(--darkgreen);
+    color: white;
+    margin-top: 5%;
+}
+
+.custom-btn:hover{
+    background-color: white;
+    border: var(--green);
+    color: var(--darkgreen)
+}
+
+.top-row{
+    color: var(--darkgreen);
+    text-align: left;
+    margin-top: 5%;
+    background-color: #00d07934;
+    padding: 5%;
+}
+
+.pfp {
+    border-radius: 50%;
+    width: 30%;
+}

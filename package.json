@@ -6,6 +6,7 @@
     "@ckeditor/ckeditor5-build-classic": "^35.1.0",
     "@ckeditor/ckeditor5-react": "^5.0.2",
     "@popperjs/core": "^2.11.6",
+    "@react-google-maps/api": "^2.12.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -23,6 +24,7 @@
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-simple-star-rating": "^4.0.5",
     "recharts": "^2.1.14",
     "web-vitals": "^2.1.4"
   },

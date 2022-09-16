@@ -21,6 +21,10 @@ import ReportsDashboard from './components/Reports/ReportsDashboard';
 import SingleReport from './components/Reports//components/SingleReport'
 import './styles/Admin_dashboard.css';
 import AddReport from './components/Reports/components/AddReport';
+import Event_Single_page from './components/Eventpage/Event_Single_page/Event_Single_page';
+import Dashboard from './components/User_dashboard/Dashboard';
+import Profilepage from './components/User_Profile/Profilepage';
+import All_Nurses_Profile from './components/All_Nurses_profile/All_Nurses_Profile';
 function App() {
   const [loginState, setLoginState] = useState(false)
   const [currentRoute, setCurrentRoute] = useState('home')
@@ -40,9 +44,7 @@ function App() {
         {currentRoute !== 'dashboard' ?
           <Navbar loginState={loginState} setLoginState={setLoginState} /> : <></>}
         <Routes >
-          <Route path='/login' element={<Login setLoginState={setLoginState} />}>
-
-          </Route>
+          <Route path='/login' element={<Login setLoginState={setLoginState} />}></Route>
           <Route path='/dashboard' element={<Admin_dashboard setCurrentRoute={setCurrentRoute} />} />
           <Route path='/events' element={<All_events />}></Route>
           <Route path='/nurse_profile' element={<Nurse_Profile />}></Route>
@@ -50,9 +52,15 @@ function App() {
           <Route path='/reports/add/:id' element={<AddReport />} />
           <Route path='/reports' element={<ReportsDashboard />} />
           <Route path='/' element={<Landingpage />}></Route>
+          <Route path='/event/:id' element={<Event_Single_page />}></Route>
+          <Route path='/user_dashboard' element={<Dashboard />}></Route>
+          <Route path='/nurse_dashboard' element={<Dashboard type='nurse' />}></Route>
           <Route path='/reviews' element={<Reviews />}></Route>
           <Route path='/nurse_appointment' element={<Nurse_Appointment />}></Route>
           <Route path='/nurse_appointment_form' element={<Nurse_Appointment_form_Details />}></Route>
+          <Route path='/profile' element={<Profilepage />}></Route>
+          <Route path='/all_nurses' element={<All_Nurses_Profile />}></Route>
+          <Route path='/' element={<Landingpage />}></Route>
         </Routes>
       </BrowserRouter>
 

@@ -4,10 +4,11 @@
 .pl-3{
     padding-left: 3px;
 }
-.event-img{
-width: 400px;
-max-height: 400px;
+.nurseprofile-img{
+width: 200px;
+height: 200px;
 object-fit: cover;
+border-radius: 50%;
 }
 .maincolortext{
     color:var(--maincolor);
@@ -15,13 +16,13 @@ object-fit: cover;
 .maincolorbg{
     background-color:var(--maincolor);
 }
-.container-event button{
+.container-nurse-profile button{
     border: none;
     border-radius: 7px;
     color:white;
-    /* max-width: 200px; */
+   
 }
-.eventheader{
+.allnursesprofileheader{
     border-bottom: 1px solid var(--maincolor) ;
 }
 .bgwhite{
@@ -36,10 +37,11 @@ object-fit: cover;
 .event_bggrayishlight{
     background-color: #eeeeeeae;
 }
-.container-event{
+.container-nurse-profile{
     padding-bottom: 20px;
     margin-right: 20px;
-    /* max-width: 430px; */
+    border: .1px solid #9d9c9cae;
+    border-radius: 5px;
 }
 .eventdescription{
     
@@ -50,16 +52,19 @@ object-fit: cover;
     padding-bottom: 30px;
 }
 
-.box-container-event{
+.box-container-allnursesprofile{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
 }
 .btn-secondary-event{
     background: rgb(175, 175, 175)!important;
 }
-.eventsearchicon{
-    color: black;
+.allnursesprofilesearchicon{
+    color: rgb(246, 246, 246);
 }
-.events_page{
-    text-align: left;
+
+.nurse_location_icon{
+    padding-right: 6px;
+  
+   color:rgb(183, 183, 183);  
 }

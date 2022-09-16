@@ -1,15 +1,13 @@
 import React from 'react'
-
+import Event_Single_page from './Event_Single_page/Event_Single_page'
 export default function Event(props) {
     const [image, setImage] = React.useState(null)
-    // React.useEffect(() => {
-    //     if(props.post.fileBuffer){
-    //         // console.log(props.post.fileBuffer)
-    //         setImage(base64)
-    //     }else{
-    //         setImage(null)
-    //     }
-    // }, [])
+    // const [showEvent, setShowEvent] = React.useState(false)
+    const [showEventSinglePage, setShowEventSinglePage] = React.useState(false)
+    if(showEventSinglePage){
+        window.location = `/event/${props.post._id}`
+    }
+    console.log(props.post)
     return (
         <>
             <div className='container-event mt-3 mx-1 bg-white'>
@@ -20,7 +18,7 @@ export default function Event(props) {
                     <h3>{props.post.name}</h3>
                 </div>
                 <div className='textgrayish px-3'>
-                    <h6>{props.post.date}</h6>
+                    <h6>{props.post.date_time}</h6>
                 </div>
                 <div className='px-3'>
                     <p>{props.post.location}</p>
@@ -29,7 +27,7 @@ export default function Event(props) {
                     <p>{1000}</p>
                 </div>
                 <div className='d-flex justify-content-end px-3'>
-                    <button className='maincolorbg px-3 py-2'>{"Learn More"}</button>
+                    <button className='maincolorbg px-3 py-2' onClick={()=>{setShowEventSinglePage(true)}}>{"Learn More"}</button>
                 </div>
             </div>
         </>
