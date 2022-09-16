@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { Spinner } from 'react-bootstrap'
-import parse from 'html-react-parser'
 
 function SingleReport() {
     const { id } = useParams()
@@ -79,7 +78,7 @@ function SingleReport() {
                 <br />
                 <div className='row'>
                     <p style={{ textAlign: 'center' }}>
-                        {parse(`<div style='text-align: 'center';'>${report.report.content}</div>`)}
+                        {<div style="text-align: 'center';">{report.report.content}</div>}
                     </p>
                 </div>
                 <br></br>

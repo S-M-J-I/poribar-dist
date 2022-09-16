@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import Nurse_Appointment_Form_Details from '../Nurse_Appointment_Form_Details/Nurse_Appointment_Form_Details'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-export default function Nurse_Appointment(){
+export default function Nurse_Appointment(props){
     const exp = [{
         nursename: "Rajina Sultana",
         basicamount:"1000",
@@ -37,16 +37,8 @@ export default function Nurse_Appointment(){
     },
         [shownurse_appointment_form_details]
     )
-<<<<<<< HEAD
-
-
-    
-    return(
-        
-=======
     return (
 
->>>>>>> 2faaaec44f39bf9181e3f5727b3e874855c4a710
         <div className='d-flex justify-content-center align-items-center nurse_appointment'>
             {shownurse_appointment_form_details ? <Nurse_Appointment_Form_Details nurse={props.nurse} /> : <></>}
             <div className='nurse_appointment_container pt-4'>

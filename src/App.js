@@ -27,8 +27,7 @@ import Event_Single_page from './components/Eventpage/Event_Single_page/Event_Si
 import Dashboard from './components/User_dashboard/Dashboard';
 import Profilepage from './components/User_Profile/Profilepage';
 import All_Nurses_Profile from './components/All_Nurses_profile/All_Nurses_Profile';
-
-
+import UserSignUp from './components/User_Signup/UserSignUp';
 function App() {
   const [loginState, setLoginState] = useState(false)
   const [currentRoute, setCurrentRoute] = useState('home')
@@ -49,9 +48,7 @@ function App() {
           .then(res => res.json())
           .then(data => {
             setCurrUser(data)
-          })
-          .catch(err => {
-
+            console.log(data)
           })
           .catch(err => {
 
@@ -96,8 +93,9 @@ function App() {
           <Route path='/nurse_appointment_form' element={<Nurse_Appointment_form_Details />}></Route>
           <Route path='/profile' element={<Profilepage />}></Route>
           <Route path='/all_nurses' element={<All_Nurses_Profile />}></Route>
-          <Route path='/' element={<Landingpage />}></Route>
+          <Route path='/user_signup' element={<UserSignUp />}></Route>
           <Route path='/nurse_profile_review_form' element={<Nurse_Profile_Review_Form />}></Route>
+          <Route path='/' element={<Landingpage />}></Route>
         </Routes>
       </BrowserRouter>
 

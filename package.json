@@ -1,5 +1,5 @@
 {
-  "name": "admin",
+  "name": "poribar",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,23 +14,17 @@
     "ckeditor4-react": "^4.0.0",
     "firebase": "^9.9.4",
     "font-awesome": "^4.7.0",
-    "html-react-parser": "^3.0.4",
     "interweave": "^13.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-calendar": "^3.8.0",
     "react-dom": "^18.2.0",
-    "react-html-parser": "^2.0.2",
     "react-icons": "^4.4.0",
     "react-rating": "^2.0.5",
     "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
     "react-simple-star-rating": "^4.0.5",
-=======
-    "react-star-ratings": "^2.3.0",
->>>>>>> 1bb36f5179ce823545151c7b2f3987c9f6f568fb
     "recharts": "^2.1.14",
     "web-vitals": "^2.1.4"
   },

@@ -1,8 +1,8 @@
 import React, { Component, useEffect, useState } from 'react'
-import  '../styles/Profilepage.css'
-import Profilepageimg from '..//resources/images/Profilepageimg.png'
-import profilepagedp from '..//resources/images/profilepagedp.jpg'
-import firebase from '../firebase/firebase'
+import  '../../styles/Profilepage.css'
+// import Profilepageimg from '../../resources/images/Profilepageimg.png'
+import profilepagedp from '../../resources/images/profilepagedp.jpg'
+import firebase from '../../firebase/firebase'
 import {getAuth, onAuthStateChanged} from 'firebase/auth'
 import userEvent from '@testing-library/user-event'
 

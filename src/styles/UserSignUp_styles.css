@@ -121,4 +121,7 @@ body{
 }
 .signup_form_body_container h2{
     color: rgb(2, 166, 131);
+}.signup_bg{
+    text-align:left;
+    padding-top: 100px;
 }
