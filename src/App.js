@@ -17,6 +17,8 @@ import Nurse_Profile from './components/Nurses_Profile/Nurse_Profile';
 import Nurse_Appointment from './components/Nurse_Appointment/Nurse_Appointment';
 import Nurse_Appointment_form_Details from './components/Nurse_Appointment_Form_Details/Nurse_Appointment_Form_Details.js';
 import Reviews from './components/Reviews/Reviews';
+import Nurse_Profile_Review_Form from './components/Nurse_Profile_Review_Form/Nurse_Profile_Review_Form';
+import Nurse_Profile_Review_Form_ratings from './components/Nurse_Profile_Review_Form/Block/Nurse_Profile_Review_Form_ratings';
 import './styles/Admin_dashboard.css';
 function App() {
   const [loginState, setLoginState] = useState(false)
@@ -47,6 +49,7 @@ function App() {
           <Route path='/reviews' element={<Reviews />}></Route>
           <Route path='/nurse_appointment' element={<Nurse_Appointment />}></Route>
           <Route path='/nurse_appointment_form' element={<Nurse_Appointment_form_Details />}></Route>
+          <Route path='/nurse_profile_review_form' element={<Nurse_Profile_Review_Form />}></Route>
         </Routes>
       </BrowserRouter>
 
