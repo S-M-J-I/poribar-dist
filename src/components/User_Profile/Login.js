@@ -45,7 +45,7 @@ class Login extends Component {
                     <div className='login-form'>
                         <form>
                             <div className='form-group d-flex flex-column'>
-                                <label className='login-label' for='email'>Username or Email</label>
+                                <label className='login-label' for='email'>Email</label>
                                 <input className='login-input' type='email' name='email' onChange={this.inputChange} id='email' placeholder='Enter your email' />
                             </div>
                             <div className='form-group d-flex flex-column'>
@@ -60,7 +60,7 @@ class Login extends Component {
                             </div>
                         </form>
                         <div className='form-group d-flex justify-content-center'>
-                            <p>Don't have an account? <a href='#'>Sign Up</a></p>
+                            <p>Don't have an account? <a href='/user_signup'>Sign Up</a></p>
                         </div>
                     </div>
                 </div>

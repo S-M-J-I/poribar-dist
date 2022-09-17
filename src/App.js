@@ -84,7 +84,7 @@ function App() {
           <Route path='/reports/report/:id' element={<SingleReport />} />
           <Route path='/reports/add/:id' element={<AddReport />} />
           <Route path='/reports' element={<ReportsDashboard />} />
-          <Route path='/' element={<Landingpage />}></Route>
+          {/* <Route path='/' element={<Landingpage />}></Route> */}
           <Route path='/event/:id' element={<Event_Single_page />}></Route>
           <Route path='/user_dashboard' element={<Dashboard />}></Route>
           <Route path='/nurse_dashboard' element={<Dashboard type='nurse' />}></Route>
