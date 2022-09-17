@@ -1,3 +1,7 @@
+:root{
+    --bar-color: rgba(0, 136, 61, 0.623);
+}
+
 .nurses_profile__container{
     width: 50%;
 }
@@ -60,6 +64,9 @@
 .nurses_profile_header__btns_btn_container{
     font-size: 17px;
 }
+.nurses_profile_header__btns_btn_container > button{
+    margin: 0 5px;
+}
 .nurses_profile_header__other__rating  span{
     font-size: 14px;
     color:rgba(0, 0, 0, 0.555)
@@ -111,12 +118,11 @@
 
 .nurse_profile_experience_collapse{
     height: 50px;
-    background-color: #b6b4b5;
+    background-color: var(--bar-color);
     border-radius: 0px 0px 17px 17px;
     text-align: center;
     color: #ffffff;
-
-
+    cursor: pointer;
 }
 .nurse_container_bottom{
     padding: 20px 20px 0px 20px;
@@ -162,10 +168,11 @@
 
 .nurse_profile_education_collapse{
     height: 50px;
-    background-color: #b6b4b5;
+    background-color: var(--bar-color);
     border-radius: 0px 0px 17px 17px;
     text-align: center;
     color: #ffffff;
+    cursor: pointer;
 }
 
 
@@ -206,10 +213,18 @@
 
 .nurse_profile_certificates_collapse{
     height: 50px;
-    background-color: #b6b4b5;
+    background-color: var(--bar-color);
     border-radius: 0px 0px 17px 17px;
     text-align: center;
     color: #ffffff;
+    cursor: pointer;
 
-
+}
+.nurses_profile__about__header{
+    border-bottom: 1px solid rgb(228, 228, 228);
+    margin-bottom: 10px;
+}
+.parsed_data>table{
+    width: 100%;
+    border-collapse: collapse;
 }

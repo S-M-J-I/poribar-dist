@@ -55,7 +55,7 @@ class Login extends Component {
                                 <input className='login-input' type='text' name='username' onChange={this.inputChange} id='username' placeholder='Enter your username' />
                             </div> */}
                             <div className='form-group d-flex flex-column'>
-                                <label className='login-label' for='email'>Username or Email</label>
+                                <label className='login-label' for='email'>Email</label>
                                 <input className='login-input' type='email' name='email' onChange={this.inputChange} id='email' placeholder='Enter your email' />
                             </div>
                             {/* <div className='form-group d-flex flex-column'>

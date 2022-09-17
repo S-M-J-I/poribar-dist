@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { Spinner } from 'react-bootstrap'
-
+import parse from 'html-react-parser'
+import '../../../styles/Reports.css'
 function SingleReport() {
     const { id } = useParams()
     const [report, setReport] = useState()
@@ -33,6 +34,7 @@ function SingleReport() {
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data,'here')
                 setReport(data)
             })
             .catch(err => {
@@ -41,7 +43,7 @@ function SingleReport() {
             .catch(err => {
                 console.log(err)
             })
-    })
+    },[])
 
     if (!report) {
         return (
@@ -52,11 +54,14 @@ function SingleReport() {
     }
     return (
         <div>
+            
             <div style={{ backgroundColor: 'var(--green)', padding: '1%' }}>
                 <div>
                     <h1>{report.report.title}</h1>
                 </div>
             </div>
+            <div className='report__container d-flex justify-content-center'>
+            <div className='container'>
             <div style={{ backgroundColor: 'white', padding: '1%' }}>
                 <div className='row' style={{ padding: '3%', fontSize: '1.2rem' }}>
                     <div className='col-sm' style={{ textAlign: 'left' }}>
@@ -78,17 +83,19 @@ function SingleReport() {
                 <br />
                 <div className='row'>
                     <p style={{ textAlign: 'center' }}>
-                        {<div style="text-align: 'center';">{report.report.content}</div>}
+                        {<div style={{textAlign:"center"}} className='parsed_data '>{parse(report.report.content)}</div>}
                     </p>
                 </div>
                 <br></br>
                 <hr></hr>
                 <br></br>
-                <div className='row'>
+                <div className='row d-flex justify-content-center'>
                     <h3><strong>Attachments</strong></h3><br />
                     {loadImages(report.images)}
                 </div>
             </div>
+        </div>
+        </div>
         </div>
     )
 }

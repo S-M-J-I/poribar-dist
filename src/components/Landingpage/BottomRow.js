@@ -5,9 +5,9 @@ import { BsFacebook, BsLinkedin } from 'react-icons/bs'
 export default class BottomRow extends Component {
     render() {
         return (
-            <div className='container'>
+            <div className='d-flex justify-content-center w-100'>
                 <br />
-                <div className='row'>
+                <div className='row w-100'>
                     <div className='col-sm'>
                         <form style={{ textAlign: 'left' }}>
                             <div className='form-group'>
@@ -16,7 +16,7 @@ export default class BottomRow extends Component {
                             </div>
                             <br />
                             <div className='form-group'>
-                                <button className='btn custom-btn'>Sign Up</button>
+                                <button className='btn btn-success'>Sign Up</button>
                             </div>
                         </form>
                         <br />
@@ -25,10 +25,12 @@ export default class BottomRow extends Component {
                             <strong>Social Media</strong>
                             <div className='row'>
                                 <div className='col-sm'>
-                                    <BsFacebook className='icons' />
+                                    <BsFacebook className='icons' style={{marginRight: '10px'}}/>
+
+                                    <BsLinkedin className='icons' />
                                 </div>
                                 <div className='col-sm'>
-                                    <BsLinkedin className='icons' />
+                                    
                                 </div>
                             </div>
                         </div>

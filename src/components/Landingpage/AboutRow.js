@@ -6,7 +6,8 @@ import { MdFamilyRestroom } from 'react-icons/md'
 export default class AboutRow extends Component {
     render() {
         return (
-            <div className='container'>
+            <div className=' w-100 d-flex justify-content-center'>
+                <div>
                 <br />
                 <br />
                 <br />
@@ -23,7 +24,7 @@ export default class AboutRow extends Component {
                 <br />
                 <br />
                 <div className='row'>
-                    <h1 className='title-text'>Why are we different</h1>
+                    <h1 className='title-text' style={{textAlign:'center'}}>Why are we different</h1>
                     <div className='col-sm'>
                         <br />
                         <br />
@@ -49,6 +50,7 @@ export default class AboutRow extends Component {
                             Helping you bring balance <br /> to life and family
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         )

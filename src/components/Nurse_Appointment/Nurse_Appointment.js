@@ -6,12 +6,30 @@ import { useEffect } from 'react'
 import Nurse_Appointment_Form_Details from '../Nurse_Appointment_Form_Details/Nurse_Appointment_Form_Details'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import {getAuth, onAuthStateChanged} from 'firebase/auth'
+import firebase from '../../firebase/firebase'
 export default function Nurse_Appointment(props){
     const [date, setDate] = useState(new Date());
-
+    const [duration, setDuration] = useState(1);
     const [shownurse_appointment_form_details, setShownurse_appointment_form_details] = useState(false);
+    const [user, setUser] = useState(null)
+    useEffect(() => {
+        const auth = getAuth(firebase)
+        onAuthStateChanged(auth, (usr) => {
+            if (usr) {
+                fetch(`http://localhost:3030/api/auth/user/profile/${usr.uid}`, { method: 'POST', mode: 'cors' }).then(data => data.json()).then(data => {
+                    setUser(data)
+                }).catch(err => {
+                    console.log(err)
+                })
+            } else {
+                setUser(null)
+            }
+        })
+    }, [])
 
     useEffect(() => {
+
         const closeWindow = (e) => {
             if (e.target.classList.contains("nurse_appointment_form_details")) {
                 setShownurse_appointment_form_details(false)
@@ -32,13 +50,13 @@ export default function Nurse_Appointment(props){
     return (
 
         <div className='d-flex justify-content-center align-items-center nurse_appointment'>
-            {shownurse_appointment_form_details ? <Nurse_Appointment_Form_Details nurse={props.nurse} /> : <></>}
+            {shownurse_appointment_form_details ? <Nurse_Appointment_Form_Details user={user} nurse={props.nurse} data={{date,duration}}/> : <></>}
             <div className='nurse_appointment_container pt-4'>
-                <div className='d-flex nurse_appointment_header'>
+                <div className='d-flex nurse_appointment_header appointment_header'>
                     <div className='d-flex align-items-center nurse_appointment_nursedp'>
                         <img src={`data:image/jpg;base64, ${props.nurse.avatar}`} />
                     </div>
-                    <div className=" d-flex align-items-center container">
+                    <div className=" d-flex align-items-center container ">
                         <div className='pb-3'>
 
                             <div className='d-flex pb-1'>
@@ -57,7 +75,7 @@ export default function Nurse_Appointment(props){
                             </div>
                         </div>
                     </div>
-                    <div className='d-flex justify-content-end'>
+                    <div className='d-flex justify-content-end '>
                         <div className=" d-flex align-items-center">
                             <div className='d-flex justify-content-center align-items-center nurse_appointment_payment_per_visit'>
                                 1000
@@ -91,7 +109,7 @@ export default function Nurse_Appointment(props){
                             <div><p>{props.nurse.name}</p></div>
                             <div><p>Nursing Service</p></div>
                             <div><p>{date.toDateString()}</p></div>
-                            <div ><input type="number" placeholder='Enter the duration here'></input></div>
+                            <div ><input type="number" placeholder='Enter the duration here' onChange={(e)=> setDuration(e.target.value)}></input></div>
 
                         </div>
                     </div>

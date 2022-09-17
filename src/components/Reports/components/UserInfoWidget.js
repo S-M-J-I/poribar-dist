@@ -2,7 +2,7 @@ import React from 'react'
 
 function UserInfoWidget(props) {
     return (
-        <div className='row'>
+        <div className='row' style={{backgroundColor:'white',marginLeft: '10px',marginRight: '10px', padding:'10px'}}>
             <div className='col-sm'>
                 <img style={{ width: '200px', height: '200px', objectFit: 'cover', borderRadius: '300px' }} src={`data:image/jpg;base64,${props.user.avatar}`} alt='userimage' />
                 <br />

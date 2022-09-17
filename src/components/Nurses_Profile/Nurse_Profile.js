@@ -45,13 +45,13 @@ function Nurse_Profile() {
                     <Nurse_Profile_about nurse={nurse} />
                 </div>
                 <div className='nurses_profile__experience'>
-                    <Nurse_Profile_experience />
+                    <Nurse_Profile_experience nurse={nurse}/>
                 </div>
                 <div className='nurses_profile__education'>
-                    <Nurse_Profile_education />
+                    <Nurse_Profile_education nurse={nurse}/>
                 </div>
                 <div className='nurses_profile__certification'>
-                    <Nurse_Profile_certificates />
+                    <Nurse_Profile_certificates nurse={nurse}/>
                 </div>
             </div>
         </div>

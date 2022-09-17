@@ -20,32 +20,27 @@ function AddReport(props) {
 
 
     useEffect(() => {
-        let currUser = ''
-        try {
-            currUser = getAuth(firebase).currentUser.uid
-        } catch (err) {
-            // console.log(err)
-            // window.location = '/'
-        }
-
-        if (currUser) {
-            fetch(`http://localhost:3030/api/auth/nurse/profile/${currUser}`, {
-                method: 'post',
-                mode: 'cors'
-            }).then(res => res.json())
-                .then((data) => {
-                    setNurse(data)
-                    // console.log(data._id)
-                    setLoading(false)
-                })
-                .catch(err => console.log(err))
-                .catch((err) => {
-                    console.log(err)
-                })
-        } else {
-            console.log('no nurse')
-        }
-    }, [nurse])
+        const auth = getAuth(firebase);
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                fetch(`http://localhost:3030/api/auth/nurse/profile/${user.uid}`, {
+                    method: 'post',
+                    mode: 'cors'
+                }).then(res => res.json())
+                    .then((data) => {
+                        setNurse(data)
+                        // console.log(data._id)
+                        setLoading(false)
+                    })
+                    .catch(err => console.log(err))
+                    .catch((err) => {
+                        console.log(err)
+                    })
+            } else {
+                console.log('no nurse')
+            }
+        })
+    }, [])
 
 
     const inputHandler = (event, editor) => {
@@ -111,26 +106,17 @@ function AddReport(props) {
     }, [])
 
 
-    const declareTimeout = () => {
-        setTimeout(() => {
-            alert('Timeout')
-            console.log('timed out')
-            window.location = '/'
-        }, 15000)
-    }
-
     if (!nurse) {
         return (
             <div style={{ minHeight: '100vh' }}>
                 <Spinner animation="border" variant="success" />
-                {declareTimeout()}
             </div>
         )
     }
 
     return (
-        <div style={{ margin: '5%' }} className='d-flex align-items-center justify-content-center'>
-            <form id='report-form' onSubmit={(e) => createReport(e, setLoading, editor)}>
+        <div style={{ margin: '5%' }} className='d-flex align-items-center justify-content-center' >
+            <form id='report-form' onSubmit={(e) => createReport(e, setLoading, editor)}  style={{backgroundColor:'white'}}>
                 <div style={{ textAlign: 'left' }} class="mb-6">
                     <label for="formGroupExampleInput" class="form-label">&nbsp;Report Title</label>
                     <input size='50' type="text" class="form-control" id="formGroupExampleInput" name='title' placeholder="Enter report title here" required />
@@ -152,7 +138,7 @@ function AddReport(props) {
                     <button type="submit" class="btn btn-light" onClick={(e) => open_file_dialogue(e)}>Upload Images Photo</button>
                 </div>
                 <div className='d-flex justify-content-center mt-3'>
-                    <button type="submit" class="btn" style={{ backgroundColor: 'var(--green)' }} >Create Report</button>
+                    <button type="submit" class="btn btn-success"  >Create Report</button>
                 </div>
             </form>
         </div>

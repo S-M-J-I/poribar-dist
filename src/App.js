@@ -69,14 +69,13 @@ function App() {
       }
     }
   }
-
-
   return (
     <div className="App">
       <BrowserRouter>
         {currentRoute !== 'dashboard' ?
           <Navbar user={currUser} setCurrUser={setCurrUser} loginState={loginState} setLoginState={setLoginState} /> : <></>}
         <Routes >
+          
           <Route path='/login' element={<Login setLoginState={setLoginState} />}></Route>
           <Route path='/dashboard' element={renderDashboardState()} />
           <Route path='/events' element={<All_events />}></Route>
@@ -84,16 +83,12 @@ function App() {
           <Route path='/reports/report/:id' element={<SingleReport />} />
           <Route path='/reports/add/:id' element={<AddReport />} />
           <Route path='/reports' element={<ReportsDashboard />} />
-          {/* <Route path='/' element={<Landingpage />}></Route> */}
           <Route path='/event/:id' element={<Event_Single_page />}></Route>
-          <Route path='/user_dashboard' element={<Dashboard />}></Route>
-          <Route path='/nurse_dashboard' element={<Dashboard type='nurse' />}></Route>
           <Route path='/reviews' element={<Reviews />}></Route>
-          <Route path='/nurse_appointment' element={<Nurse_Appointment />}></Route>
-          <Route path='/nurse_appointment_form' element={<Nurse_Appointment_form_Details />}></Route>
           <Route path='/profile' element={<Profilepage />}></Route>
           <Route path='/all_nurses' element={<All_Nurses_Profile />}></Route>
           <Route path='/user_signup' element={<UserSignUp />}></Route>
+          <Route path='/nurse_signup' element={<UserSignUp type='nurse'/>}></Route>
           <Route path='/nurse_profile_review_form' element={<Nurse_Profile_Review_Form />}></Route>
           <Route path='/' element={<Landingpage />}></Route>
         </Routes>

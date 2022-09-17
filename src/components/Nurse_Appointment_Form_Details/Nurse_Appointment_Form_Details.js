@@ -5,7 +5,10 @@ import firebase from '../../firebase/firebase';
 import { useState } from 'react';
 export default function Nurse_Appointment_form_Details(props) {
     const [loading, setLoading] = useState(false)
-
+    const [address,setAddress] = useState(props.user.address)
+    const [phone,setPhone] = useState(props.user.phone)
+    const [name,setName] = useState(props.user.name)
+    const [email,setEmail] = useState(props.user.email)
     const createAppointment = (e, setLoading) => {
         e.preventDefault()
 
@@ -15,7 +18,8 @@ export default function Nurse_Appointment_form_Details(props) {
         const formData = new FormData(form)
         formData.append("customer", user)
         formData.append("nurse", props.nurse.uid)
-        formData.append("duration", 1)
+        formData.append("duration", props.data.duration)
+        formData.append("start_date", props.data.date)
         setLoading(true)
 
         fetch(`http://localhost:3030/api/appointments/create`, {
@@ -26,10 +30,15 @@ export default function Nurse_Appointment_form_Details(props) {
             .then(data => {
                 setLoading(false)
                 console.log(data)
+                if(data.status === 'success'){
+                    alert("Appointment created successfully")
+                    window.location='/dashboard'
+                }
             }
             )
             .catch(err => {
                 console.log(err)
+                alert(err)
             }
             )
     }
@@ -41,7 +50,7 @@ export default function Nurse_Appointment_form_Details(props) {
                     <div className='d-flex'>
                         <div class="form-group px-1 nurse_appointment_form_details_input_box">
                             <label for="exampleInputEmail1">Name</label>
-                            <input size='100' name='name' type="text" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" value={props.nurse.name} />
+                            <input size='100' name='name' type="text" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" value={name} onChange={(e) => setName(e.target.value)} />
 
                         </div>
                     </div>
@@ -50,18 +59,18 @@ export default function Nurse_Appointment_form_Details(props) {
                         <div class="form-group px-1 nurse_appointment_form_details_input_box">
                             <></>
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" name='email' class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" value={props.nurse.email} />
+                            <input type="email" name='email' class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" value={email} onChange={(e) => setEmail(e.target.value)} />
 
                         </div>
                         <div class="form-group px-1 nurse_appointment_form_details_input_box">
                             <label for="exampleInputEmail1">Phone Number</label>
-                            <input type="number" name='phone' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={props.nurse.phone} />
+                            <input type="number" name='phone' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={phone} onChange={(e) => setPhone(e.target.value)} />
 
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Location</label>
-                        <textarea type="email" name='location' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your location here" />
+                        <textarea type="email" name='location' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your location here"  value={address} onChange={(e)=>setAddress(e.target.value)}/>
 
                     </div>
                     <div className='d-flex py-2'>
@@ -91,7 +100,7 @@ export default function Nurse_Appointment_form_Details(props) {
                                 Total Price
                             </div>
                             <div className='container d-flex justify-content-end'>
-                                1000
+                                {1000*props.data.duration}
                             </div>
                         </div>
                     </div>
@@ -107,7 +116,7 @@ export default function Nurse_Appointment_form_Details(props) {
                             <div className='nurse_appointment_form_details_width d-flex justify-content-end'>
                                 <div>
                                     <i class="nurse_appointment_form_details_edit_icon fa fa-pencil-square-o" aria-hidden="true"></i>
-                                    <h6>1000</h6>
+                                    <h6>{1000*props.data.duration}</h6>
                                 </div>
                             </div>
                         </div>

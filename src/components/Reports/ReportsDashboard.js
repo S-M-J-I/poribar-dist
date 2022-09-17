@@ -11,52 +11,46 @@ function ReportsDashboard() {
     const [reports, setReports] = useState()
 
     useEffect(() => {
-        let currUser = ''
-        try {
-            currUser = getAuth(firebase).currentUser.uid
-        } catch (err) {
-            // console.log(err)
-            // window.location = '/'
-        }
-
-        if (currUser) {
-            fetch(`http://localhost:3030/api/auth/user/profile/${currUser}`, {
-                method: 'post',
-                mode: 'cors'
-            }).then(res => res.json())
-                .then((data) => {
-                    setUser(data)
-                    // console.log(data._id)
-                    setLoading(false)
-                    fetch(`http://localhost:3030/api/reports/all/${data._id}`, {
-                        method: 'post',
-                        mode: 'cors'
+        let auth = getAuth(firebase)
+        auth.onAuthStateChanged((usr) => {
+            if (usr) {
+                setUser(usr)
+                fetch(`http://localhost:3030/api/auth/user/profile/${usr.uid}`, {
+                    method: 'post',
+                    mode: 'cors'
+                }).then(res => res.json())
+                    .then((data) => {
+                        setUser(data)
+                        // console.log(data._id)
+                        setLoading(false)
+                        fetch(`http://localhost:3030/api/reports/all/${data.uid}`, {
+                            method: 'post',
+                            mode: 'cors'
+                        })
+                            .then(res => res.json())
+                            .then((dd) => {
+                                setReports(dd)
+                                console.log(dd)
+                            })
+                            .catch(err => console.log(err))
+                            .catch((err) => {
+                                // console.log(err)
+                            })
                     })
-                        .then(res => res.json())
-                        .then((data) => {
-                            setReports(data)
-                            // console.log(data)
-                        })
-                        .catch(err => console.log(err))
-                        .catch((err) => {
-                            // console.log(err)
-                        })
-                })
-                .catch(err => console.log(err))
-                .catch((err) => {
-                    // console.log(err)
-                })
-        } else {
-            console.log('no user')
-        }
-    })
+                    .catch(err => console.log(err))
+            } else {
+                console.log('no user')
+            }
+        })
+    }, [])
 
     const loadAddReport = (user) => {
-        console.log(user.type)
+        // console.log(user.type)
+        
         if (user.type === 'nurse') {
             return (
                 <div style={{ textAlign: 'right' }}>
-                    <a href={`/reports/add/${user._id}`} className='btn btn-primary'>+</a>
+                    <a href={`/reports/add/${user.uid}`} className='btn btn-primary'>+</a>
                 </div>
             )
         }
@@ -64,14 +58,16 @@ function ReportsDashboard() {
 
     const load = (user) => {
         // console.log(user.type)
+        console.log(user)
         if (!loading) {
             return (
                 <div className='container'>
                     <UserInfoWidget user={user} />
                     <br />
-                    {loadAddReport(user)}
+                    {/* {loadAddReport(user)} */}
                     <hr style={{ color: 'var(--darkgreen)' }} />
-                    <ReportsRollWidget reports={reports} />
+                    <h2>Medical Reports</h2>
+                    <ReportsRollWidget reports={reports} user={user}/>
                 </div>
             )
         }
@@ -85,7 +81,7 @@ function ReportsDashboard() {
         )
     }
     return (
-        <div style={{ textAlign: 'center', margin: '3%' }} className='d-flex align-items-center justify-content-center'>
+        <div style={{ textAlign: 'center' }} className='d-flex align-items-center justify-content-center'>
             {
                 load(user)
             }
