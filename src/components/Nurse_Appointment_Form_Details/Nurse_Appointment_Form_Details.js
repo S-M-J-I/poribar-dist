@@ -15,11 +15,23 @@ export default function Nurse_Appointment_form_Details(props) {
         const formData = new FormData(form)
         formData.append("customer", user)
         formData.append("nurse", props.nurse.uid)
+        formData.append("duration", 1)
         setLoading(true)
 
         fetch(`http://localhost:3030/api/appointments/create`, {
-
-        })
+            method: 'post',
+            mode: 'cors',
+            body: formData
+        }).then(res => res.json())
+            .then(data => {
+                setLoading(false)
+                console.log(data)
+            }
+            )
+            .catch(err => {
+                console.log(err)
+            }
+            )
     }
 
     return (
@@ -29,7 +41,7 @@ export default function Nurse_Appointment_form_Details(props) {
                     <div className='d-flex'>
                         <div class="form-group px-1 nurse_appointment_form_details_input_box">
                             <label for="exampleInputEmail1">Name</label>
-                            <input size='100' type="text" class="form-control" id="exampleInputEmail1" name='name' aria-describedby="emailHelp" value={props.nurse.name} />
+                            <input size='100' name='name' type="text" class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" value={props.nurse.name} />
 
                         </div>
                     </div>
@@ -38,18 +50,18 @@ export default function Nurse_Appointment_form_Details(props) {
                         <div class="form-group px-1 nurse_appointment_form_details_input_box">
                             <></>
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" name='email' aria-describedby="emailHelp" value={props.nurse.email} />
+                            <input type="email" name='email' class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" value={props.nurse.email} />
 
                         </div>
                         <div class="form-group px-1 nurse_appointment_form_details_input_box">
                             <label for="exampleInputEmail1">Phone Number</label>
-                            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={props.nurse.phone} />
+                            <input type="number" name='phone' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={props.nurse.phone} />
 
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Location</label>
-                        <textarea type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your location here" />
+                        <textarea type="email" name='location' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your location here" />
 
                     </div>
                     <div className='d-flex py-2'>
@@ -71,7 +83,7 @@ export default function Nurse_Appointment_form_Details(props) {
                     <div className=' d-flex nurse_appointment_form_details_discount pt-2'>
 
                         <label className='d-flex align-items-center nurse_appointment_form_details_text_weight ' for="exampleInputEmail1">Add Coupon</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the coupon" />
+                        <input type="text" name='coupon' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the coupon" />
                     </div>
                     <div className='mt-4 mb-4'>
                         <div className='d-flex nurse_appointment_form_details_total_price'>

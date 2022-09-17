@@ -15,6 +15,7 @@ function AppointmentsRow(props) {
                 mode: 'cors'
             }).then(res => res.json())
                 .then(data => {
+                    console.log("here")
                     console.log(data)
                     setAppointments(data)
                 })

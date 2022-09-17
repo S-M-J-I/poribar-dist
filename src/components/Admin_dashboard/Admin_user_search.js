@@ -3,38 +3,26 @@ import Admin_user_search_widget from './Widgets/Admin_user_search_widget'
 import * as Fa from 'react-icons/fa'
 import Admin_user_sort_by from './Widgets/Admin_user_sort_by'
 function Admin_user_search() {
-    const users = [
-        {
-            name: 'John Doe',
-            email: 'johndoe@xyz.com',
-            phone: '1234567890',
-            date: '12/12/2020',
-            type: 'Admin'
-        }, {
-            name: 'John Doe',
-            email: 'johndoe@xyz.com',
-            phone: '1234567890',
-            date: '12/12/2020',
-            type: 'User'
-        }, {
-            name: 'John Doe',
-            email: 'johndoe@xyz.com',
-            phone: '1234567890',
-            date: '12/12/2020',
-            type: 'Nurse'
-        }, {
-            name: 'John Doe',
-            email: 'johndoe@xyz.com',
-            phone: '1234567890',
-            date: '12/12/2020'
-        }, {
-            name: 'John Doe',
-            email: 'johndoe@xyz.com',
-            phone: '1234567890',
-            date: '12/12/2020'
-        },
+    const [users, setUsers] = React.useState([])
+    React.useEffect(() => {
+        fetch('http://localhost:3030/api/auth/user/getall', {
+            method: 'post',
+            mode: 'cors'
+        }).then(res => res.json())
+            .then(data => {
+                setUsers(data)
+            })
+            .catch(err => {
+                alert(err)
+            })
+    }, [])
+    if(users.length === 0){
+        return (
+            <>Loading</>
+        )
+    }
 
-    ]
+
     const showSortBy = () => {
         document.querySelector('.sort_by_popup').classList.toggle('show')
     }
@@ -51,6 +39,7 @@ function Admin_user_search() {
                     <table className='admin_user_search__body__table w-100 table table-hover table-dark'>
                         <thead>
                             <tr>
+                                <th scope='col'>UID</th>
                                 <th scope='col'>Name</th>
                                 <th scope='col'>Email</th>
                                 <th scope='col'>Phone</th>
