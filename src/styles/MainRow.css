@@ -4,6 +4,8 @@
     background-image: url("../resources/images/photo.jpg");
     height: 50rem;
     background-repeat: no-repeat;
+    /* width: 2500px; */
+    /* padding-left: 100px; */
 }
 
 .text-on-image{

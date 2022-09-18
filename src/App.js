@@ -20,6 +20,9 @@ import Reviews from './components/Reviews/Reviews';
 import Nurse_Profile_Review_Form from './components/Nurse_Profile_Review_Form/Nurse_Profile_Review_Form';
 import Nurse_Profile_Review_Form_ratings from './components/Nurse_Profile_Review_Form/Block/Nurse_Profile_Review_Form_ratings';
 import './styles/Admin_dashboard.css';
+import Add_certificates from './components/Nurses_Profile/Add_info_windows/Add_certificates';
+import Add_education from './components/Nurses_Profile/Add_info_windows/Add_education';
+import Add_experiences from './components/Nurses_Profile/Add_info_windows/Add_experiences';
 function App() {
   const [loginState, setLoginState] = useState(false)
   const [currentRoute, setCurrentRoute] = useState('home')
@@ -50,6 +53,9 @@ function App() {
           <Route path='/nurse_appointment' element={<Nurse_Appointment />}></Route>
           <Route path='/nurse_appointment_form' element={<Nurse_Appointment_form_Details />}></Route>
           <Route path='/nurse_profile_review_form' element={<Nurse_Profile_Review_Form />}></Route>
+          <Route path='/add_certificates' element={<Add_certificates/>}></Route>
+          <Route path='/add_education' element={<Add_education/>}></Route>
+          <Route path='/add_experiences' element={<Add_experiences/>}></Route>
         </Routes>
       </BrowserRouter>
 

@@ -213,3 +213,15 @@
 
 
 }
+
+.nurse_profile_add_icon{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding-right: 10px;
+}
+
+.nurse_profile_add_icon button{
+    background-color: white;
+    border: none;
+}
