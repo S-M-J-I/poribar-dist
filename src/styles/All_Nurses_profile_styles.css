@@ -54,7 +54,7 @@ border-radius: 50%;
 
 .box-container-allnursesprofile{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(25rem,30rem));
+    grid-template-columns: repeat(auto-fit,minmax(20rem,34.8rem));
 }
 .btn-secondary-event{
     background: rgb(175, 175, 175)!important;

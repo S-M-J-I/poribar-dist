@@ -32,7 +32,6 @@ function App() {
   const [loginState, setLoginState] = useState(false)
   const [currentRoute, setCurrentRoute] = useState('home')
   const [currUser, setCurrUser] = useState()
-
   useEffect(() => {
     const auth = getAuth(firebase)
     onAuthStateChanged(auth, (user) => {
@@ -56,7 +55,6 @@ function App() {
       }
     })
   }, [loginState])
-
   const renderDashboardState = () => {
     if (currUser) {
 
@@ -75,7 +73,7 @@ function App() {
         {currentRoute !== 'dashboard' ?
           <Navbar user={currUser} setCurrUser={setCurrUser} loginState={loginState} setLoginState={setLoginState} /> : <></>}
         <Routes >
-          
+
           <Route path='/login' element={<Login setLoginState={setLoginState} />}></Route>
           <Route path='/dashboard' element={renderDashboardState()} />
           <Route path='/events' element={<All_events />}></Route>
@@ -88,7 +86,7 @@ function App() {
           <Route path='/profile' element={<Profilepage />}></Route>
           <Route path='/all_nurses' element={<All_Nurses_Profile />}></Route>
           <Route path='/user_signup' element={<UserSignUp />}></Route>
-          <Route path='/nurse_signup' element={<UserSignUp type='nurse'/>}></Route>
+          <Route path='/nurse_signup' element={<UserSignUp type='nurse' />}></Route>
           <Route path='/nurse_profile_review_form' element={<Nurse_Profile_Review_Form />}></Route>
           <Route path='/' element={<Landingpage />}></Route>
         </Routes>

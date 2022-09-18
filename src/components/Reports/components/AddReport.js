@@ -13,11 +13,14 @@ function open_file_dialogue(e) {
 
 function AddReport(props) {
     const [loading, setLoading] = useState(false)
-    const [editor, setEditor] = useState(null)
+    const [Editor, setEditor] = useState(props.editor)
     const [data, setData] = useState('')
     const [nurse, setNurse] = useState(null)
     const { id } = useParams()
-
+    const [state, setState] = useState({
+        data: (""),
+        editor: null
+    })
 
     useEffect(() => {
         const auth = getAuth(firebase);
@@ -36,17 +39,24 @@ function AddReport(props) {
                     .catch((err) => {
                         console.log(err)
                     })
+                setTimeout(() => {
+                    console.log(state.data);
+                    const editor = (
+                        <CKEditor
+                            id={"ck-editor-text"}
+                            editor={ClassicEditor}
+                            onReady={editor => { console.log('Editor is ready to use!', editor) }}
+                            onChange={(e, editor) => setData(editor.getData())}
+                        />
+                    )
+                    setState({ ...state, editor: editor });
+                }, 2000);
             } else {
                 console.log('no nurse')
             }
         })
+
     }, [])
-
-
-    const inputHandler = (event, editor) => {
-        console.log(editor.getData());
-        setData(editor.getData())
-    }
 
     const createReport = (e, setLoading, editor) => {
         e.preventDefault();
@@ -58,6 +68,7 @@ function AddReport(props) {
         const formData = new FormData(form)
         setLoading(true)
         formData.append("content", data)
+        console.log(data)
         formData.append("patient", id)
         formData.append("nurse", nurse._id)
         console.log(formData.get("content"))
@@ -81,42 +92,18 @@ function AddReport(props) {
             })
     }
 
-    useEffect(() => {
-        const ckeditor = <CKEditor
-            editor={ClassicEditor}
-            config={{
-                name: 'content',
-            }}
-            id="content"
-            data="Write content here</p>"
-            onReady={editor => {
-                // You can store the "editor" and use when it is needed.
-                console.log('Editor is ready to use!', editor);
-            }}
-            onChange={inputHandler}
-            onBlur={(event, editor) => {
-                console.log('Blur.', editor);
-            }}
-            onFocus={(event, editor) => {
-                console.log('Focus.', editor);
-            }}
-        />
-
-        setEditor(ckeditor)
-    }, [])
-
 
     if (!nurse) {
         return (
-            <div style={{ minHeight: '100vh' }}>
-                <Spinner animation="border" variant="success" />
+            <div style={{ minHeight: '100vh' }} className='d-flex align-items-center justify-content-center'>
+                <Spinner animation="border" variant="success" size='100px' />
             </div>
         )
     }
 
     return (
         <div style={{ margin: '5%' }} className='d-flex align-items-center justify-content-center' >
-            <form id='report-form' onSubmit={(e) => createReport(e, setLoading, editor)}  style={{backgroundColor:'white'}}>
+            <form id='report-form' onSubmit={(e) => createReport(e, setLoading, Editor)} style={{ backgroundColor: 'white' }}>
                 <div style={{ textAlign: 'left' }} class="mb-6">
                     <label for="formGroupExampleInput" class="form-label">&nbsp;Report Title</label>
                     <input size='50' type="text" class="form-control" id="formGroupExampleInput" name='title' placeholder="Enter report title here" required />
@@ -129,7 +116,9 @@ function AddReport(props) {
                 <br></br>
                 <div style={{ textAlign: 'left' }} class="mb-6">
                     <label for="formGroupExampleInput" class="form-label">&nbsp;Report Content</label>
-                    {editor}
+                    <div id='content'>
+                        {state.editor}
+                    </div>
                 </div>
                 <br></br>
                 <div style={{ textAlign: 'left' }} class="mb-6">

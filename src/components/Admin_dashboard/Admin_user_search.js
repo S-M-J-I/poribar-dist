@@ -33,12 +33,12 @@ function Admin_user_search() {
             setUsers(tempUsers)
         }
     }, [keyWords])
-    if(users.length === 0 && !isSearching){
+    if (users.length === 0 && !isSearching) {
         return (
             <>Loading</>
         )
     }
-    
+
 
     const showSortBy = () => {
         document.querySelector('.sort_by_popup').classList.toggle('show')
@@ -47,9 +47,9 @@ function Admin_user_search() {
         <div className='admin_user_search d-flex'>
             <div className='admin_user_search__center'>
                 <div className='admin_user_search__header d-flex align-items-center'>
-                    <input className='form-control mr-sm-2' type='search' placeholder='Search for users' onChange={(e)=> setKeyWords(e.target.value)}/>
+                    <input className='form-control mr-sm-2' type='search' placeholder='Search for users' onChange={(e) => setKeyWords(e.target.value)} />
                     <div className='admin_user_search__header__btns d-flex align-items-center'>
-                        <Fa.FaBars color='black' onClick={()=>showSortBy()}/>
+                        <Fa.FaBars color='black' onClick={() => showSortBy()} />
                     </div>
                 </div>
                 <div className='admin_user_search__body'>
@@ -60,7 +60,7 @@ function Admin_user_search() {
                                 <th scope='col'>Name</th>
                                 <th scope='col'>Email</th>
                                 <th scope='col'>Phone</th>
-                                <th scope='col'>Date</th>
+                                {/* <th scope='col'>Date</th> */}
                                 <th scope='col'>Type</th>
                                 <th scope='col'>Profile</th>
                                 <th scope='col'>Action</th>

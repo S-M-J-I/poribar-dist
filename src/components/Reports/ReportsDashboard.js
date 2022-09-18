@@ -46,7 +46,7 @@ function ReportsDashboard() {
 
     const loadAddReport = (user) => {
         // console.log(user.type)
-        
+
         if (user.type === 'nurse') {
             return (
                 <div style={{ textAlign: 'right' }}>
@@ -67,7 +67,7 @@ function ReportsDashboard() {
                     {/* {loadAddReport(user)} */}
                     <hr style={{ color: 'var(--darkgreen)' }} />
                     <h2>Medical Reports</h2>
-                    <ReportsRollWidget reports={reports} user={user}/>
+                    <ReportsRollWidget reports={reports} user={user} />
                 </div>
             )
         }
@@ -75,7 +75,7 @@ function ReportsDashboard() {
 
     if (!user || !reports) {
         return (
-            <div style={{ minHeight: '100vh' }}>
+            <div style={{ minHeight: '100vh' }} className='d-flex justify-content-center align-items-center'>
                 <Spinner animation="border" variant="success" />
             </div>
         )
