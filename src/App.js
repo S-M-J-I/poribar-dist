@@ -22,6 +22,9 @@ import Nurse_Profile_Review_Form_ratings from './components/Nurse_Profile_Review
 import ReportsDashboard from './components/Reports/ReportsDashboard';
 import SingleReport from './components/Reports//components/SingleReport'
 import './styles/Admin_dashboard.css';
+import Add_certificates from './components/Nurses_Profile/Add_info_windows/Add_certificates';
+import Add_education from './components/Nurses_Profile/Add_info_windows/Add_education';
+import Add_experiences from './components/Nurses_Profile/Add_info_windows/Add_experiences';
 import AddReport from './components/Reports/components/AddReport';
 import Event_Single_page from './components/Eventpage/Event_Single_page/Event_Single_page';
 import Dashboard from './components/User_dashboard/Dashboard';
