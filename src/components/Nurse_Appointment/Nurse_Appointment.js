@@ -67,7 +67,7 @@ export default function Nurse_Appointment(props){
                                     <div className=' px-2'>
                                         <i class="nurse_appointment_start_icon fa fa-star" aria-hidden="true"></i>
                                     </div>
-                                    <div>{props.nurse.rating}</div>
+                                    <div>{parseFloat(props.nurse.rating).toPrecision(2)}</div>
                                 </div>
                             </div>
                             <div>

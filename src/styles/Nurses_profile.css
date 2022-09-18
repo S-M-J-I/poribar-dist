@@ -224,7 +224,3 @@
     border-bottom: 1px solid rgb(228, 228, 228);
     margin-bottom: 10px;
 }
-.parsed_data>table{
-    width: 100%;
-    border-collapse: collapse;
-}

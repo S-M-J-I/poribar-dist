@@ -28,7 +28,7 @@ function Nurse_Profile_education() {
     <div className='nurse_profile_education  '>
         <div className='nurse_container nurse_container_bottom'>
             <div className='nurse_profile_education__header d-flex'>
-                <h3 className='nurse_profile_education__header__h3'>education</h3>
+                <h3 className='nurse_profile_education__header__h3'>Education</h3>
             </div>
             <div className='nurse_profile_education_body'>
                 {exp.map((education)=><Education education={education}/>)}

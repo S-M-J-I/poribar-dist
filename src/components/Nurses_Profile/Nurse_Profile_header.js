@@ -52,7 +52,7 @@ function Nurse_Profile_header(props) {
     )
     return (
         <div className='nurses_profile_header'>
-            {showreview ? <Reviews /> : <></>}
+            {showreview ? <Reviews user={props.nurse}/> : <></>}
             {shownurse_appointment ? <Nurse_Appointment nurse={props.nurse} /> : <></>}
             <div className='nurses_profile_header__cover_image'>
                 <img src='https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fHBlcnNvbnxlbnwwfHwwfHw%3D&w=1000&q=80' alt='cover_image' />
@@ -74,7 +74,7 @@ function Nurse_Profile_header(props) {
                     <p className='nurses_profile_header__other__location__p'>{props.nurse.address}</p>
                 </div>
                 <div className='nurses_profile_header__other__rating '>
-                    <p className='nurses_profile_header__other__rating__p d-flex justify-content-center align-items-center'><Fa.FaStar className='nurses_profile_rating_star' />&nbsp;{props.nurse.rating}/5</p>
+                    <p className='nurses_profile_header__other__rating__p d-flex justify-content-center align-items-center'><Fa.FaStar className='nurses_profile_rating_star' />&nbsp;{parseFloat(props.nurse.rating).toPrecision(3)}/5</p>
                 </div>
             </div>
         </div>

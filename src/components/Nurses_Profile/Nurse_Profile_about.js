@@ -7,7 +7,7 @@ function Nurse_Profile_about(props) {
         <h3 className='nurses_profile__about__header__h3'>About</h3>
       </div>
       <div className='nurses_profile__about__body d-flex'>
-        <p className='nurses_profile_about_description'>Nurse {props.nurse.name} is one of our verified nurses from {props.nurse.address} with a rating of {props.nurse.rating}</p>
+        <p className='nurses_profile_about_description'>Nurse {props.nurse.name} is one of our verified nurses from {props.nurse.address} with a rating of {props.nurse.rating.toPrecision(2)}</p>
       </div>
     </div>
   )

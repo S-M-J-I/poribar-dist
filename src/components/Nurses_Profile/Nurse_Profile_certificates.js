@@ -37,7 +37,7 @@ function Nurse_Profile_certificates() {
     <div className='nurse_profile_certificates  '>
         <div className='nurse_container nurse_container_bottom'>
             <div className='nurse_profile_certificates__header d-flex'>
-                <h3 className='nurse_profile_certificates__header__h3'>certificates</h3>
+                <h3 className='nurse_profile_certificates__header__h3'>Certificates</h3>
             </div>
             <div className='nurse_profile_certificates_body'>
                 {exp.map((certificates)=><Certificates certificates={certificates}/>)}
