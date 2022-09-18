@@ -30,7 +30,7 @@ import All_Nurses_Profile from './components/All_Nurses_profile/All_Nurses_Profi
 import UserSignUp from './components/User_Signup/UserSignUp';
 import AllAppointments from './components/User_dashboard/AllAppointments';
 import ReportsDashboardIndividuals from './components/Reports/ReportsDashboardIndividual';
-import Settings from './components/Settings/Settings';
+import Settings_Dashboard from './components/User_dashboard/Settings_Dashboard';
 function App() {
   const [loginState, setLoginState] = useState(false)
   const [currentRoute, setCurrentRoute] = useState('home')
@@ -89,6 +89,7 @@ function App() {
 
           <Route path='/login' element={<Login setLoginState={setLoginState} />}></Route>
           <Route path='/dashboard/appointments' element={renderAppointments()}></Route>
+          <Route path='/dashboard/settings' element={<Settings_Dashboard user={currUser} />}></Route>
           <Route path='/dashboard' element={renderDashboardState()} />
           <Route path='/events' element={<All_events />}></Route>
           <Route path='/nurse_profile/:id' element={<Nurse_Profile />}></Route>
@@ -103,7 +104,7 @@ function App() {
           <Route path='/user_signup' element={<UserSignUp />}></Route>
           <Route path='/nurse_signup' element={<UserSignUp type='nurse' />}></Route>
           <Route path='/nurse_profile_review_form' element={<Nurse_Profile_Review_Form />}></Route>
-          <Route path='/settings' element={<Settings />}></Route>
+          {/* <Route path='/settings' element={<Settings />}></Route> */}
           <Route path='/' element={<Landingpage />}></Route>
         </Routes>
       </BrowserRouter>

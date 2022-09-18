@@ -59,12 +59,12 @@ function AppointmentComponent(props) {
                         </div>
                         <br />
                         <div className='row'>
-                            <div className='col-sm d-flex justify-content-between' style={{ textAlign: 'left' }} >
+                            <div className=' d-flex justify-content-between' style={{ textAlign: 'left' }} >
                                 <h6>{props.appointment.location}</h6>
                                 <p>ID:&nbsp;{props.appointment._id}</p>
                             </div>
                             {props.type === 'user' &&
-                                <div className='col-sm-9' style={{ textAlign: 'right' }}>
+                                <div className='' style={{ textAlign: 'right' }}>
                                     <h6 style={{ color: 'var(--darkgreen)' }}>{nurse.rating.toPrecision(2)} stars</h6>
                                 </div>
                             }

@@ -1,7 +1,7 @@
 .settings{
     width: 100%;
     height: 100vh;
-    background-color: white;
+    
 }
 .avatar-pic{
     height: 100px;
@@ -39,8 +39,10 @@
     margin: 0;
 }
 .settings-container{
-    width: 50%;
+    width: 60%;
     padding: 20px;
+    background-color: white;
+    border-radius: 20px;
 }
 .row-input>input{
     border: 1.5px solid rgb(165, 165, 165);
@@ -58,4 +60,8 @@
     border: none;
     border: 2px solid rgb(0, 136, 95)!important;
     outline: none;
+}
+.settings_row{
+    border-top: 1px solid rgba(117, 117, 117, 0.527);
+    padding: 10px 0;
 }

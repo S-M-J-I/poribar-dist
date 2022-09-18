@@ -8,8 +8,7 @@ function Sidebar() {
                 <li style={{ color: 'var(--green)' }}><span>PORIBAR</span></li>
                 <li><Link to='/dashboard/' style={{ textDecoration: 'none', color: 'black' }}>Dashboard</Link></li>
                 <li><Link to='/dashboard/appointments' style={{ textDecoration: 'none', color: 'black' }}>Appointments</Link></li>
-                <li>Payments</li>
-                <li>Settings</li>
+                <li><Link to='/dashboard/settings' style={{ textDecoration: 'none', color: 'black' }}>Settings</Link></li>
             </ul>
         </div>
     )
