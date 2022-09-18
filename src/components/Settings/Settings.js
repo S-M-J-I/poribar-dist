@@ -58,7 +58,7 @@ function Settings() {
         .then(data=>{
             if(data.status==='success'){
                 alert('Profile updated successfully')
-                // window.location='/user_login'
+                window.location='/users_login'
             }
         }).catch(err=>console.log(err))
     }
