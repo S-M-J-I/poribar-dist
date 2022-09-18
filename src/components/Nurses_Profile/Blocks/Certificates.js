@@ -8,12 +8,12 @@ function Certificates(props) {
         </div>
         <div className='nurses_profile_certificates__body d-flex flex-column'>
             {/* <div className='nurses_profile_certificates__body__header'> */}
-                <h3 className='nurses_profile_certificates__body__position'>{props.certificates.coursename}</h3>
+                <h3 className='nurses_profile_certificates__body__position'>{props.certificates.course_name}</h3>
                 <div className='nurses_profile_certificates__body__company'>
-                    <p className='nurses_profile_certificates__body__company__p'>{props.certificates.company}</p>
+                    <p className='nurses_profile_certificates__body__company__p'>{props.certificates.company_name}</p>
                 </div>
                 <div className='nurses_profile_certificates__body__date'>
-                    <p className='nurses_profile_certificates__body__date__p'>{props.certificates.issuedyear}</p>
+                    <p className='nurses_profile_certificates__body__date__p'>{new Date(props.certificates.issue_year).toUTCString()}</p>
                 </div>
             {/* </div> */}
         </div>

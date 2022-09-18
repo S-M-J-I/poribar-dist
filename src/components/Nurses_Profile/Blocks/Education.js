@@ -8,12 +8,12 @@ function Education(props) {
         </div>
         <div className='nurses_profile_education__body d-flex flex-column'>
             {/* <div className='nurses_profile_education__body__header'> */}
-                <h3 className='nurses_profile_education__body__position'>{props.education.institutename}</h3>
+                <h3 className='nurses_profile_education__body__position'>{props.education.institute_name}</h3>
                 <div className='nurses_profile_education__body__company'>
                     <p className='nurses_profile_education__body__company__p'>{props.education.program}</p>
                 </div>
                 <div className='nurses_profile_education__body__date'>
-                    <p className='nurses_profile_education__body__date__p'>{props.education.starttime} - {props.education.endtime}</p>
+                    <p className='nurses_profile_education__body__date__p'>{new Date(props.education.start_date).getFullYear()} - {new Date(props.education.end_date).getFullYear()}</p>
                 </div>
     
                 <div className='nurses_profile_education__body__date'>

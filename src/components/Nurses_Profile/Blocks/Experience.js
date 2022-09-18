@@ -8,12 +8,12 @@ function Experience(props) {
         </div>
         <div className='nurses_profile_experience__body d-flex flex-column'>
             {/* <div className='nurses_profile_experience__body__header'> */}
-                <h3 className='nurses_profile_experience__body__position'>{props.experience.post}</h3>
+                <h3 className='nurses_profile_experience__body__position'>{props.experience.designation}</h3>
                 <div className='nurses_profile_experience__body__company'>
-                    <p className='nurses_profile_experience__body__company__p'>{props.experience.company}.{props.experience.type}</p>
+                    <p className='nurses_profile_experience__body__company__p'>{props.experience.company_name}.{props.experience.type}</p>
                 </div>
                 <div className='nurses_profile_experience__body__date'>
-                    <p className='nurses_profile_experience__body__date__p'>{props.experience.date}</p>
+                    <p className='nurses_profile_experience__body__date__p'>{new Date(props.experience.start_date).getFullYear()}-{new Date(props.experience.end_date).getFullYear()}</p>
                 </div>
                 <div className='nurses_profile_experience__body__location'>
                     <p className='nurses_profile_experience__body__location__p'>{props.experience.location}</p>

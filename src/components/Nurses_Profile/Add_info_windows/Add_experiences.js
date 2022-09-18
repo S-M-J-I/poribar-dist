@@ -6,23 +6,20 @@ export default function Add_experiences(props){
     const onSubmit = (e) =>{
         e.preventDefault();
         const element = document.getElementById("add_experiences")
-        const form = new Form(element)
+        const form = new FormData(element)
         fetch("http://localhost:3030/api/auth/nurse/add/experiences/"+ props.user.uid,{
             method:'post',
             mode:"cors",
             body:form
-
         }
-
         ).then(res => res.json()).then(res => {
             if(res.status === "success"){
                 window.location.reload()
             }
         }).catch(err => console.log(err))
     }
-
     return(
-        <div className='add_info_window'>
+        <div className='add_info_window' id='main_window'>
         <div className='d-flex justify-content-center align-items-center add_info_window_header'>
             <div className='add_info_window_container px-5 py-4'>
             <form id="add_experiences"onSubmit={(e) => {onSubmit(e)}}>

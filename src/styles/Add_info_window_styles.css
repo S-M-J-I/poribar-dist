@@ -21,7 +21,11 @@
     height: 100vh;
     z-index: 100;
     background-color: rgba(210, 210, 210, 0.475);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .add_certificates_issued_year{
     width: 100%;
 }
