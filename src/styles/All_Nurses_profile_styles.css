@@ -1,0 +1,70 @@
+:root{
+    --maincolor: #00C773;
+}
+.pl-3{
+    padding-left: 3px;
+}
+.nurseprofile-img{
+width: 200px;
+height: 200px;
+object-fit: cover;
+border-radius: 50%;
+}
+.maincolortext{
+    color:var(--maincolor);
+}
+.maincolorbg{
+    background-color:var(--maincolor);
+}
+.container-nurse-profile button{
+    border: none;
+    border-radius: 7px;
+    color:white;
+   
+}
+.allnursesprofileheader{
+    border-bottom: 1px solid var(--maincolor) ;
+}
+.bgwhite{
+    background-color: white;
+}
+.bggrayish{
+    background-color: #cdcdcdae;
+}
+.textgrayish{
+    color: #686666ae;
+}
+.event_bggrayishlight{
+    background-color: #eeeeeeae;
+}
+.container-nurse-profile{
+    padding-bottom: 20px;
+    margin-right: 20px;
+    border: .1px solid #9d9c9cae;
+    border-radius: 5px;
+}
+.eventdescription{
+    
+    
+    height: 95px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-bottom: 30px;
+}
+
+.box-container-allnursesprofile{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(20rem,34.8rem));
+}
+.btn-secondary-event{
+    background: rgb(175, 175, 175)!important;
+}
+.allnursesprofilesearchicon{
+    color: rgb(246, 246, 246);
+}
+
+.nurse_location_icon{
+    padding-right: 6px;
+  
+   color:rgb(183, 183, 183);  
+}

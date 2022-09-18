@@ -4,6 +4,7 @@ import {useState} from 'react'
 import {useEffect} from 'react'
 import Add_experiences from './Add_info_windows/Add_experiences'
 function Nurse_Profile_experience() {
+    const [isShown, setIsShown] = React.useState(false)
     const exp=[{
         post:'Nurse',
         company:'Company',
@@ -122,10 +123,13 @@ useEffect(()=>{
         </div>
         <div className='nurse_profile_experience_collapse d-flex justify-content-center align-items-center' onClick={()=>{
                 const element = document.getElementsByClassName("nurse_profile_experience_body")
-                    element[0].style.maxHeight = "none" 
-                }
-
-                }>{"Show All Experiences"}
+                if(isShown){
+                    element[0].style.maxHeight='500px'
+                }else{
+                    element[0].style.maxHeight = "none"
+                } 
+                    setIsShown(!isShown)
+        }}>{!isShown&&"Show All Experiences"}
         </div>
     </div>
   )

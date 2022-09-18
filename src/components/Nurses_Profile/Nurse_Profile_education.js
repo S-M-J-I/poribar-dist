@@ -4,6 +4,7 @@ import Add_education from './Add_info_windows/Add_education'
 import {useState} from 'react'
 import {useEffect} from 'react'
 function Nurse_Profile_education() {
+    const [isShown, setIsShown] = React.useState(false)
     const exp=[{
         institutename:'United Medical College',
         program:'MBBS',
@@ -57,6 +58,7 @@ useEffect(()=>{
                 <div className='d-flex jutify-content-end align-items-center nurse_profile_add_icon'>
                 <button type='button'onClick={() => {setAdd_education(true)}}><i class="fa fa-plus nurse_profile_add_icon" aria-hidden="true"></i></button>
                 </div>
+                <h3 className='nurse_profile_education__header__h3'>Education</h3>
             </div>
             <div className='nurse_profile_education_body'>
                 {exp.map((education)=><Education education={education}/>)}
@@ -65,10 +67,13 @@ useEffect(()=>{
         </div>
         <div className='nurse_profile_education_collapse d-flex justify-content-center align-items-center' onClick={()=>{
                 const element = document.getElementsByClassName("nurse_profile_education_body")
-                    element[0].style.maxHeight = "none" 
-                }
-
-                }>{"Show All educations"}
+                if(isShown){
+                    element[0].style.maxHeight='500px'
+                }else{
+                    element[0].style.maxHeight = "none"
+                } 
+                    setIsShown(!isShown)
+        }}>{!isShown&&"Show All Education"}
         </div>
     </div>
   )

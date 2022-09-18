@@ -19,13 +19,25 @@ import Nurse_Appointment_form_Details from './components/Nurse_Appointment_Form_
 import Reviews from './components/Reviews/Reviews';
 import Nurse_Profile_Review_Form from './components/Nurse_Profile_Review_Form/Nurse_Profile_Review_Form';
 import Nurse_Profile_Review_Form_ratings from './components/Nurse_Profile_Review_Form/Block/Nurse_Profile_Review_Form_ratings';
+import ReportsDashboard from './components/Reports/ReportsDashboard';
+import SingleReport from './components/Reports//components/SingleReport'
 import './styles/Admin_dashboard.css';
 import Add_certificates from './components/Nurses_Profile/Add_info_windows/Add_certificates';
 import Add_education from './components/Nurses_Profile/Add_info_windows/Add_education';
 import Add_experiences from './components/Nurses_Profile/Add_info_windows/Add_experiences';
+import AddReport from './components/Reports/components/AddReport';
+import Event_Single_page from './components/Eventpage/Event_Single_page/Event_Single_page';
+import Dashboard from './components/User_dashboard/Dashboard';
+import Profilepage from './components/User_Profile/Profilepage';
+import All_Nurses_Profile from './components/All_Nurses_profile/All_Nurses_Profile';
+import UserSignUp from './components/User_Signup/UserSignUp';
+import AllAppointments from './components/User_dashboard/AllAppointments';
+import ReportsDashboardIndividuals from './components/Reports/ReportsDashboardIndividual';
+import Settings from './components/Settings/Settings';
 function App() {
   const [loginState, setLoginState] = useState(false)
   const [currentRoute, setCurrentRoute] = useState('home')
+  const [currUser, setCurrUser] = useState()
   useEffect(() => {
     const auth = getAuth(firebase)
     onAuthStateChanged(auth, (user) => {
@@ -33,29 +45,69 @@ function App() {
         setLoginState(false)
       } else {
         setLoginState(true)
+
+        fetch(`http://localhost:3030/api/auth/user/profile/${user.uid}`, {
+          method: 'post',
+          mode: 'cors'
+        })
+          .then(res => res.json())
+          .then(data => {
+            setCurrUser(data)
+            console.log(data)
+          })
+          .catch(err => {
+
+          })
       }
     })
   }, [loginState])
+  const renderDashboardState = () => {
+    if (currUser) {
+
+      if (currUser.type === 'user') {
+        return <Dashboard user={currUser} setCurrentRoute={setCurrentRoute} type='user' />
+      } else if (currUser.type === 'nurse') {
+        return <Dashboard user={currUser} setCurrentRoute={setCurrentRoute} type='nurse' />
+      } else {
+        return <Admin_dashboard setCurrentRoute={setCurrentRoute} />
+      }
+    }
+  }
+  const renderAppointments = () => {
+    if (currUser) {
+      if (currUser.type === 'user') {
+        return <AllAppointments user={currUser} setCurrentRoute={setCurrentRoute} type='user' />
+      } else if (currUser.type === 'nurse') {
+        return <AllAppointments user={currUser} setCurrentRoute={setCurrentRoute} type='nurse' />
+      }
+    }
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
         {currentRoute !== 'dashboard' ?
-          <Navbar loginState={loginState} setLoginState={setLoginState} /> : <></>}
+          <Navbar user={currUser} setCurrUser={setCurrUser} loginState={loginState} setLoginState={setLoginState} /> : <></>}
         <Routes >
-          <Route path='/login' element={<Login setLoginState={setLoginState} />}>
 
-          </Route>
-          <Route path='/dashboard' element={<Admin_dashboard setCurrentRoute={setCurrentRoute} />} />
+          <Route path='/login' element={<Login setLoginState={setLoginState} />}></Route>
+          <Route path='/dashboard/appointments' element={renderAppointments()}></Route>
+          <Route path='/dashboard' element={renderDashboardState()} />
           <Route path='/events' element={<All_events />}></Route>
-          <Route path='/nurse_profile' element={<Nurse_Profile />}></Route>
-          <Route path='/' element={<Landingpage />}></Route>
+          <Route path='/nurse_profile/:id' element={<Nurse_Profile />}></Route>
+          <Route path='/reports/report/:id' element={<SingleReport />} />
+          <Route path='/reports/add/:id' element={<AddReport />} />
+          <Route path='/reports/:id' element={<ReportsDashboardIndividuals />} />
+          <Route path='/reports' element={<ReportsDashboard />} />
+          <Route path='/event/:id' element={<Event_Single_page />}></Route>
           <Route path='/reviews' element={<Reviews />}></Route>
-          <Route path='/nurse_appointment' element={<Nurse_Appointment />}></Route>
-          <Route path='/nurse_appointment_form' element={<Nurse_Appointment_form_Details />}></Route>
+          <Route path='/profile' element={<Profilepage />}></Route>
+          <Route path='/all_nurses' element={<All_Nurses_Profile />}></Route>
+          <Route path='/user_signup' element={<UserSignUp />}></Route>
+          <Route path='/nurse_signup' element={<UserSignUp type='nurse' />}></Route>
           <Route path='/nurse_profile_review_form' element={<Nurse_Profile_Review_Form />}></Route>
-          <Route path='/add_certificates' element={<Add_certificates/>}></Route>
-          <Route path='/add_education' element={<Add_education/>}></Route>
-          <Route path='/add_experiences' element={<Add_experiences/>}></Route>
+          <Route path='/settings' element={<Settings />}></Route>
+          <Route path='/' element={<Landingpage />}></Route>
         </Routes>
       </BrowserRouter>
 

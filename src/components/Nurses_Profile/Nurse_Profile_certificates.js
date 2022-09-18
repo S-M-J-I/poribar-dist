@@ -4,6 +4,7 @@ import {useState} from 'react'
 import {useEffect} from 'react'
 import Add_certificates from './Add_info_windows/Add_certificates'
 function Nurse_Profile_certificates() {
+    const [isShown, setIsShown] = React.useState(false)
     const exp=[{
         coursename:'Be a better caregiver',
         company:'UdemyUdemy',
@@ -66,6 +67,7 @@ useEffect(()=>{
                 <div className='d-flex jutify-content-end align-items-center nurse_profile_add_icon'>
                 <button type='button' onClick={() => {setAdd_certificate(true)}}><i class="fa fa-plus nurse_profile_add_icon" aria-hidden="true"></i></button>
                 </div>
+                <h3 className='nurse_profile_certificates__header__h3'>Certificates</h3>
             </div>
             <div className='nurse_profile_certificates_body'>
                 {exp.map((certificates)=><Certificates certificates={certificates}/>)}
@@ -74,10 +76,13 @@ useEffect(()=>{
         </div>
         <div className='nurse_profile_certificates_collapse d-flex justify-content-center align-items-center' onClick={()=>{
                 const element = document.getElementsByClassName("nurse_profile_certificates_body")
-                    element[0].style.maxHeight = "none" 
-                }
-
-                }>{"Show All certificatess"}
+                if(isShown){
+                    element[0].style.maxHeight='500px'
+                }else{
+                    element[0].style.maxHeight = "none"
+                } 
+                    setIsShown(!isShown)
+        }}>{!isShown&&"Show All Certificates"}
         </div>
     </div>
   )

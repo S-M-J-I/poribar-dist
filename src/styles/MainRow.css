@@ -2,10 +2,12 @@
 
 .imgrow {
     background-image: url("../resources/images/photo.jpg");
-    height: 50rem;
+    height: 100vh;
+    width: 100%;
     background-repeat: no-repeat;
     /* width: 2500px; */
     /* padding-left: 100px; */
+    background-size: cover;
 }
 
 .text-on-image{

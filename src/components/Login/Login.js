@@ -55,7 +55,7 @@ class Login extends Component {
                                 <input className='login-input' type='text' name='username' onChange={this.inputChange} id='username' placeholder='Enter your username' />
                             </div> */}
                             <div className='form-group d-flex flex-column'>
-                                <label className='login-label' for='email'>Username or Email</label>
+                                <label className='login-label' for='email'>Email</label>
                                 <input className='login-input' type='email' name='email' onChange={this.inputChange} id='email' placeholder='Enter your email' />
                             </div>
                             {/* <div className='form-group d-flex flex-column'>
@@ -66,15 +66,15 @@ class Login extends Component {
                                 <label className='login-label' for='password'>Password</label>
                                 <input className='login-input' type='password' name='password' onChange={this.inputChange} id='password' placeholder='Enter your password' />
                             </div>
-                            <div className='form-group d-flex flex-row-reverse'>
+                            {/* <div className='form-group d-flex flex-row-reverse'>
                                 <a href='#'>Forgot Password?</a>
-                            </div>
+                            </div> */}
                             <div className='form-group d-flex justify-content-center'>
                                 <button className='login-btn btn btn-success' onClick={this.tryLogin} type='submit'>Sign In</button>
                             </div>
                         </form>
                         <div className='form-group d-flex justify-content-center'>
-                            <p>Don't have an account? <a href='#'>Sign Up</a></p>
+                            <p>Don't have an account? <a href='/user_signup'>Sign Up</a></p>
                         </div>
                     </div>
                 </div>

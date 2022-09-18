@@ -1,0 +1,15 @@
+.parsed_data .table{
+    width: 100%;
+    border-collapse: collapse;
+    display: flex;
+    justify-content: center;
+}
+.parsed_data table{
+    /* width: 75%; */
+    border-collapse: collapse;
+}
+#report-form{
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
