@@ -14,7 +14,7 @@
 .app-row{
     background-color: rgb(244, 244, 244);
     border-radius: 30px;
-    padding: 5%;
+    padding: 2% 3% ;
 }
 
 .appointment_header{
@@ -41,4 +41,8 @@
     border-radius: 10px;
     padding: 20px;
     margin: 20px;
+}
+.flag{
+    background-color: red;
+    border-radius: 40px 0 40px 40px;
 }

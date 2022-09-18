@@ -1,0 +1,67 @@
+.settings{
+    width: 100%;
+    height: 100vh;
+    
+}
+.avatar-pic{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.avatar >*{
+    margin: 0 20px;
+}
+.avatar-buttons>*{
+    margin: 0 5px;
+}
+.row-input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+.row-input>*{
+    width: 100%;
+}
+.row-header{
+    align-items: center;
+    /* text-align: center; */
+    line-height: 0px;
+}
+.row-header>p{
+    font-weight: 50;
+    margin: auto 0;
+}
+.row-header>h6{
+    margin: 0;
+}
+.settings-container{
+    width: 60%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+}
+.row-input>input{
+    border: 1.5px solid rgb(165, 165, 165);
+    border-radius: 5px;
+    padding: 0 10px;
+    height: 40px;
+}
+.row-input>input:focus{
+    border: none;
+    border: 2px solid rgb(0, 136, 95)!important;
+    outline: none;
+    /* border: 1.5px solid rgb(0, 136, 95)!important; */
+}
+.row-input>input:active{
+    border: none;
+    border: 2px solid rgb(0, 136, 95)!important;
+    outline: none;
+}
+.settings_row{
+    border-top: 1px solid rgba(117, 117, 117, 0.527);
+    padding: 10px 0;
+}

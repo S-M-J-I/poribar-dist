@@ -21,6 +21,12 @@ export default function Nurse_Profile_Review_Form(){
         id:"3",
         name:"3",
         value:"3"
+    },
+    {
+        q:"how was the rating",
+        id:"4",
+        name:"4",
+        value:"4"
     }
     ]
     // var Rating = require('react-rating');
@@ -92,7 +98,7 @@ export default function Nurse_Profile_Review_Form(){
                                 <div className='py-2'>
                                     <label for="exampleFormControlTextarea1"><b>Add Comment</b></label>
                                 </div>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control Nurse_Profile_Review_Form_ratings_add_comment_textarea" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
                         </div>
                         <div className='d-flex justify-content-center Nurse_Profile_Review_Form_ratings_button py-3 pb-5'>

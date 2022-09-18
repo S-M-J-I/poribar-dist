@@ -11,8 +11,9 @@ export default function All_events() {
     const [tempPosts, setTempPosts] = useState([])
     const [timer, setTimer] = useState(false)
     const [isUpcoming, setIsUpcoming] = useState(false)
+    const [isPopular, setIsPopular] = useState(false)
     useEffect(() => {
-        if (search.length === 0 || loading === true || isUpcoming === false) {
+        if (search.length === 0 || loading === true || isUpcoming === false || isPopular === false) {
             fetch("http://localhost:3030/api/events/all", {
                 method: "POST",
                 mode: "cors"
@@ -33,16 +34,26 @@ export default function All_events() {
         if (isUpcoming) {
             setPosts(posts.filter(post => {
                 console.log(post.date_time)
-                const date = new Date(post.date_time)
-                console.log(date)
-                return date > Date.now()}
-                ))
+                const date = new Date(post.date)
+                // console.log('->',post.date)
+                return date > Date.now()
+            }
+            ))
         }
-        if (search.length === 0 && isUpcoming === false) {
+        console.log('here')
+        if (isPopular) {
+            console.log("popular")
+            const temp=[...posts];
+        
+            setPosts(temp.sort((a, b) => b.going.length - a.going.length))
+        }
+
+        if (search.length === 0 && isUpcoming === false && isPopular === false) {
+            console.log("here")
             setPosts(tempPosts)
         }
 
-    }, [search, isUpcoming])
+    }, [search, isUpcoming,isPopular])
     if (loading) {
         return (
             <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
@@ -80,11 +91,19 @@ export default function All_events() {
 
                                 <b className="mx-2">Upcoming</b>
                             </button>}
+                        &nbsp;
+                        {isPopular ? <button className="btn btn-danger" type="button" onClick={() => setIsPopular(!isPopular)}>
 
-                        <button className="btn btn-success mx-2" type="button">
-                            <i class="fa fa-bars"></i>
+                            <i className="fa fa-bars"></i>
+
                             <b className="mx-2">Popular</b>
                         </button>
+                            : <button className="btn btn-success" type="button" onClick={() => setIsPopular(!isPopular)}>
+
+                                <i className="fa fa-bars"></i>
+
+                                <b className="mx-2">Popular</b>
+                            </button>}
                     </div>
                 </div>
 

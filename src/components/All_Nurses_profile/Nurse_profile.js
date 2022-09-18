@@ -13,7 +13,7 @@ export default function Nurse_profile(props) {
                 </div>
                 <div className='nurseprofile_rating textgrayish px-3 d-flex justify-content-center'>
                     <Rating ratingValue={props.post.rating/5*100} size={20} readonly={true}/* Available Props */ />
-                    <p className='py-1 px-2'>{props.post.rating}</p>
+                    <p className='py-1 px-2'>{props.post.rating.toPrecision(2)}</p>
                 </div>
                 <div className='px-3 py-2 d-flex justify-content-center'>
                     <i className="fa fa-map-marker fa-2x nurse_location_icon" aria-hidden="true" style={{color:'red'}}/>

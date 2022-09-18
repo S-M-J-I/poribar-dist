@@ -11,7 +11,7 @@ export default function Event(props) {
     return (
         <>
             <div className='container-event mt-3 mx-1 bg-white'>
-                <div className='px-3 py-3'>
+                <div className='px-3 py-3 d-flex justify-content-center'>
                     <img className="event-img" src={`data:image/jpg;base64,${props.post.fileBuffer}`} />
                 </div>
                 <div className='maincolortext px-3'>
@@ -24,7 +24,7 @@ export default function Event(props) {
                     <p>{props.post.location}</p>
                 </div>
                 <div className='px-3'>
-                    <p>{1000}</p>
+                    <p>Going:&nbsp; {props.post.going.length}</p>
                 </div>
                 <div className='d-flex justify-content-end px-3'>
                     <button className='btn btn-success px-3 py-2' onClick={()=>{setShowEventSinglePage(true)}}>{"Learn More"}</button>

@@ -5,6 +5,8 @@
     height: 100vh;
     width: 100%;
     background-repeat: no-repeat;
+    /* width: 2500px; */
+    /* padding-left: 100px; */
     background-size: cover;
 }
 

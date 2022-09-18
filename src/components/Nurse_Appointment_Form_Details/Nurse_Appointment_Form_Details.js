@@ -130,7 +130,7 @@ export default function Nurse_Appointment_form_Details(props) {
                     </div> */}
                     </div>
                     <div className='d-flex justify-content-center'>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
                     </div>
                 </form>
             </div>

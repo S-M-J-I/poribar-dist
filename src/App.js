@@ -22,12 +22,18 @@ import Nurse_Profile_Review_Form_ratings from './components/Nurse_Profile_Review
 import ReportsDashboard from './components/Reports/ReportsDashboard';
 import SingleReport from './components/Reports//components/SingleReport'
 import './styles/Admin_dashboard.css';
+import Add_certificates from './components/Nurses_Profile/Add_info_windows/Add_certificates';
+import Add_education from './components/Nurses_Profile/Add_info_windows/Add_education';
+import Add_experiences from './components/Nurses_Profile/Add_info_windows/Add_experiences';
 import AddReport from './components/Reports/components/AddReport';
 import Event_Single_page from './components/Eventpage/Event_Single_page/Event_Single_page';
 import Dashboard from './components/User_dashboard/Dashboard';
 import Profilepage from './components/User_Profile/Profilepage';
 import All_Nurses_Profile from './components/All_Nurses_profile/All_Nurses_Profile';
 import UserSignUp from './components/User_Signup/UserSignUp';
+import AllAppointments from './components/User_dashboard/AllAppointments';
+import ReportsDashboardIndividuals from './components/Reports/ReportsDashboardIndividual';
+import Settings_Dashboard from './components/User_dashboard/Settings_Dashboard';
 function App() {
   const [loginState, setLoginState] = useState(false)
   const [currentRoute, setCurrentRoute] = useState('home')
@@ -67,6 +73,16 @@ function App() {
       }
     }
   }
+  const renderAppointments = () => {
+    if (currUser) {
+      if (currUser.type === 'user') {
+        return <AllAppointments user={currUser} setCurrentRoute={setCurrentRoute} type='user' />
+      } else if (currUser.type === 'nurse') {
+        return <AllAppointments user={currUser} setCurrentRoute={setCurrentRoute} type='nurse' />
+      }
+    }
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -75,11 +91,14 @@ function App() {
         <Routes >
 
           <Route path='/login' element={<Login setLoginState={setLoginState} />}></Route>
+          <Route path='/dashboard/appointments' element={renderAppointments()}></Route>
+          <Route path='/dashboard/settings' element={<Settings_Dashboard user={currUser} />}></Route>
           <Route path='/dashboard' element={renderDashboardState()} />
           <Route path='/events' element={<All_events />}></Route>
           <Route path='/nurse_profile/:id' element={<Nurse_Profile />}></Route>
           <Route path='/reports/report/:id' element={<SingleReport />} />
           <Route path='/reports/add/:id' element={<AddReport />} />
+          <Route path='/reports/:id' element={<ReportsDashboardIndividuals />} />
           <Route path='/reports' element={<ReportsDashboard />} />
           <Route path='/event/:id' element={<Event_Single_page />}></Route>
           <Route path='/reviews' element={<Reviews />}></Route>
@@ -88,6 +107,7 @@ function App() {
           <Route path='/user_signup' element={<UserSignUp />}></Route>
           <Route path='/nurse_signup' element={<UserSignUp type='nurse' />}></Route>
           <Route path='/nurse_profile_review_form' element={<Nurse_Profile_Review_Form />}></Route>
+          {/* <Route path='/settings' element={<Settings />}></Route> */}
           <Route path='/' element={<Landingpage />}></Route>
         </Routes>
       </BrowserRouter>

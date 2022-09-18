@@ -1,0 +1,31 @@
+.add_info_window{
+    text-align: left;
+    
+}
+
+.add_info_window_container{
+    background-color: aliceblue;
+    width: 25%;
+    border-radius: 12px;
+    
+}
+.add_certificates_start_end_year{
+    width: 50%;
+}
+.add_info_window_header{
+    text-align: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: rgba(210, 210, 210, 0.475);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add_certificates_issued_year{
+    width: 100%;
+}

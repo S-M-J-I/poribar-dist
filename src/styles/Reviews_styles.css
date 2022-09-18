@@ -23,4 +23,21 @@
     z-index: 100;
     background-color: rgba(210, 210, 210, 0.475);
 }
-
+.add-review{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(39, 37, 37, 0.753);
+}
+.review-container{
+    background-color: white;
+    width: 500px;
+    border-radius: 15px;
+    padding: 15px;
+}

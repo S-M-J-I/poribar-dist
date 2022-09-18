@@ -27,9 +27,6 @@ function AccountsRow(props) {
                 <div className='col-sm-4'>
                     <h5>Earnings: <strong style={{ color: 'var(--darkgreen)' }}>{balance} BDT</strong></h5>
                 </div>
-                <div className='col-sm-4'>
-                    Paypal, Apple Pay
-                </div>
             </div>
         </div>
     )
