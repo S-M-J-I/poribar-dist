@@ -4,6 +4,7 @@ import firebase from '../../firebase/firebase'
 import usersignupimg from '../../resources/images/usersignupimg.png'
 import '../../styles/UserSignUp_styles.css'
 import * as Fa from 'react-icons/fa'
+import {getAuth,onAuthStateChanged} from 'firebase/auth'
 function UserSignUp(props) {
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
@@ -22,14 +23,18 @@ function UserSignUp(props) {
         e.preventDefault()
         const element = document.getElementById('registration_form') 
         const formData = new FormData(element)
-        fetch('http://localhost:3030/api/auth/user/signup', {
+        formData.append('gender', gender)
+        console.log(gender)
+        const url = (props.type==='nurse'?'http://localhost:3030/api/auth/nurse/signup':'http://localhost:3030/api/auth/user/signup');
+        fetch(url, {
             method: 'POST',
             mode: 'cors',
             body: formData
         }).then(data => data.json()).then(data => {
             console.log(data)
             if (data.status === 'success') {
-                props.history.push('/login')
+                alert('User registered successfully')
+                window.location='/login'
             }
         }).catch(err => console.log(err))
     }
@@ -37,6 +42,15 @@ function UserSignUp(props) {
         const element = document.getElementById('customFile')
         element.click()
     }
+    React.useEffect(() => {
+        const auth = getAuth(firebase)
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                window.location = '/dashboard'
+            }
+        })
+    }, [])
+    
     React.useEffect(() => {
         if(avatar){
             const element = document.getElementById('profile_pic')
@@ -61,7 +75,7 @@ function UserSignUp(props) {
                             <form className='px-5 py-3' id='registration_form' onSubmit={(e)=> register(e)}>
                                 <div class="form-group pb-1">
                                     <label for="exampleInputEmail1">Name</label>
-                                    <input type="text" class="form-control" name='name' required id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setUsername(e.target.value)} />
+                                    <input type="text" class="form-control" name='name' required id="exampleInputEmail1" aria-describedby="nameHelp" onChange={(e) => setUsername(e.target.value)} />
 
                                 </div>
                                 <div class="form-group pb-1">
@@ -92,19 +106,19 @@ function UserSignUp(props) {
                                         <label>Gender</label>
                                     </div>
                                     <div class="form-check signup_form_body_container_radio_btn">
-                                        <input class="form-check-input " type="radio" name="gender" id="male" onClick={()=> setGender('male')} />
+                                        <input class="form-check-input " type="radio"  id="male" onClick={()=> setGender('male')} />
                                         <label class="form-check-label" for="male" >
                                             Male
                                         </label>
                                     </div>
                                     <div class="form-check signup_form_body_container_radio_btn">
-                                        <input class="form-check-input" type="radio" name="gender" id="female" onClick={()=> setGender('female')} />
+                                        <input class="form-check-input" type="radio"  id="female" onClick={()=> setGender('female')} />
                                         <label class="form-check-label" for="female">
                                             Female
                                         </label>
                                     </div>
                                     <div class="form-check signup_form_body_container_radio_btn">
-                                        <input class="form-check-input" type="radio" name="gender" id="others" onClick={()=> setGender('others')} />
+                                        <input class="form-check-input" type="radio"  id="others" onClick={()=> setGender('others')} />
                                         <label class="form-check-label" for="others">
                                             Others
                                         </label>
@@ -112,7 +126,7 @@ function UserSignUp(props) {
                                 </div>
                                 <div class="form-group pb-1">
                                     <label for="exampleInputEmail1">Phone Number</label>
-                                    <input type="number" class="form-control" id="exampleInputEmail1" name='phone' aria-describedby="emailHelp" required placeholder="Enter your phone number" onChange={(e) => setPhone(e.target.value)} />
+                                    <input type="text" class="form-control" id="exampleInputEmail1" name='phone' aria-describedby="emailHelp" required placeholder="Enter your phone number" onChange={(e) => setPhone(e.target.value)} />
 
                                 </div>
                                 <div class="form-group pb-1">

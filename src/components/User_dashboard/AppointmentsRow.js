@@ -17,7 +17,12 @@ function AppointmentsRow(props) {
                 .then(data => {
                     console.log("here")
                     console.log(data)
-                    setAppointments(data)
+                    const res=data.filter(appointment => {
+                        return new Date(appointment.start_date) > new Date()
+                    })
+                    console.log(new Date())
+                    setAppointments(res)
+                    
                 })
                 .catch(err => {
                     alert(err)
@@ -30,16 +35,22 @@ function AppointmentsRow(props) {
             fetch(`http://localhost:3030/api/appointments/nurse/getall/${uid}`, {
                 method: 'post',
                 mode: 'cors'
-            }).then(res => res.json())
-                .then(data => {
-                    setAppointments(data)
+            }).then(res => res.json()).then(data => {
+                console.log("here")
+                console.log(data)
+                const res=data.filter(appointment => {
+                    return new Date(appointment.start_date) > new Date()
                 })
-                .catch(err => {
-                    alert(err)
-                })
-                .catch(err => {
-                    alert(err)
-                })
+                console.log(new Date())
+                setAppointments(res)
+                
+            })
+            .catch(err => {
+                alert(err)
+            })
+            .catch(err => {
+                alert(err)
+            })
         }
     }, [])
 
@@ -47,15 +58,15 @@ function AppointmentsRow(props) {
         const rows = []
         console.log(appointments)
 
-        if (appointments && appointments.length >= 0) {
+        if (appointments && appointments.length > 0) {
             if (props.user.type === 'user') {
                 appointments.forEach(appointment => {
-                    rows.push(<AppointmentComponent name={appointment.nurse} address={appointment.location} review='4.5' />)
+                    rows.push(<AppointmentComponent name={appointment.nurse}  address={appointment.location} appointment={appointment} type='user'/>)
                 })
             } else {
-                for (let i = 0; i < 5; ++i) {
-                    rows.push(<AppointmentComponent name='John' date='3/9/2022' address='Some dmd area' review='4.5' />)
-                }
+                appointments.forEach(appointment => {
+                    rows.push(<AppointmentComponent name={appointment.customer}  address={appointment.location} appointment={appointment} type='nurse'/>)
+                })
             }
         } else {
             return <h4>No Appointments</h4>
@@ -66,11 +77,11 @@ function AppointmentsRow(props) {
 
     return (
         <div className='appointments-row'>
-            <div className='container'>
+            <div className='container '>
                 <div className='row text-row'>
-                    <h2>Appointments</h2>
+                    <h2>Upcoming Appointments</h2>
                 </div>
-                <div className='row'>
+                <div className='row appointment-body'>
                     {
                         displayAppointments()
                     }

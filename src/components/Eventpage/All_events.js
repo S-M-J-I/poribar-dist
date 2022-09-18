@@ -10,8 +10,9 @@ export default function All_events() {
     const [search, setSearch] = useState("");
     const [tempPosts, setTempPosts] = useState([])
     const [timer, setTimer] = useState(false)
+    const [isUpcoming, setIsUpcoming] = useState(false)
     useEffect(() => {
-        if (search.length === 0 || loading === true) {
+        if (search.length === 0 || loading === true || isUpcoming === false) {
             fetch("http://localhost:3030/api/events/all", {
                 method: "POST",
                 mode: "cors"
@@ -23,23 +24,25 @@ export default function All_events() {
             }).then(res => res.json()).then(data => setTempPosts(data)).catch(err => console.log(err))
         }
         setLoading(false)
-        // console.log('hehe')
         console.log(tempPosts)
-    }, [timer])
+    }, [])
     useEffect(() => {
         if (search.length > 0) {
             setPosts(tempPosts.filter(post => post.name.toLowerCase().includes(search.toLowerCase())))
-        } else {
+        }
+        if (isUpcoming) {
+            setPosts(posts.filter(post => {
+                console.log(post.date_time)
+                const date = new Date(post.date_time)
+                console.log(date)
+                return date > Date.now()}
+                ))
+        }
+        if (search.length === 0 && isUpcoming === false) {
             setPosts(tempPosts)
         }
-    }, [search])
-    useEffect(() => {
-        setTimeout(() => {
-            // console.log('haha')
-            setTimer(!timer)
-        }, 2000)
-        // console.log('hoho')
-    }, [timer])
+
+    }, [search, isUpcoming])
     if (loading) {
         return (
             <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
@@ -59,18 +62,26 @@ export default function All_events() {
                     <div class="input-group mb-3 w-25">
                         <input type="text" class="form-control" placeholder="Search an event" aria-describedby="basic-addon2" onChange={(e) => setSearch(e.target.value)} />
                         <div class="input-group-append">
-                            <button className="btn btn-secondary" type="button">
-                                <i className="eventsearchicon fa fa-search"></i>
+                            <button className="btn btn-success" type="button">
+                                <i className="eventsearchicon fa fa-search" style={{ color: 'white' }}></i>
                             </button>
                         </div>
                     </div>
                     <div >
-                        <button className="btn btn-secondary-event" type="button">
+                        {isUpcoming ? <button className="btn btn-danger" type="button" onClick={() => setIsUpcoming(!isUpcoming)}>
+
                             <i className="fa fa-calendar"></i>
 
                             <b className="mx-2">Upcoming</b>
                         </button>
-                        <button className="btn btn-secondary-event mx-2" type="button">
+                            : <button className="btn btn-success" type="button" onClick={() => setIsUpcoming(!isUpcoming)}>
+
+                                <i className="fa fa-calendar"></i>
+
+                                <b className="mx-2">Upcoming</b>
+                            </button>}
+
+                        <button className="btn btn-success mx-2" type="button">
                             <i class="fa fa-bars"></i>
                             <b className="mx-2">Popular</b>
                         </button>

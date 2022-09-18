@@ -62,8 +62,8 @@ function Nurse_Profile_header(props) {
             </div>
             <div className='nurses_profile_header__btns d-flex justify-content-end align-items-top'>
                 <div className='nurses_profile_header__btns_btn_container pt-2 px-2'>
-                    <button className='nurses_profile_header__btns__appointment' onClick={() => { setShownurse_appointment(true) }}>Request for appointment</button>
-                    <button className='nurses_profile_header__btns__review' onClick={() => { setShowreview(true) }}>Reviews</button>
+                    <button className=' btn btn-outline-success' onClick={() => { setShownurse_appointment(true) }}>Request for appointment</button>
+                    <button className=' btn btn-outline-success' onClick={() => { setShowreview(true) }}>Reviews</button>
                 </div>
             </div>
             <div className='nurses_profile_header__name'>
@@ -74,7 +74,7 @@ function Nurse_Profile_header(props) {
                     <p className='nurses_profile_header__other__location__p'>{props.nurse.address}</p>
                 </div>
                 <div className='nurses_profile_header__other__rating '>
-                    <p className='nurses_profile_header__other__rating__p d-flex justify-content-center align-items-center'><Fa.FaStar className='nurses_profile_rating_star' />&nbsp;{props.nurse.rating}/5<span>(45)</span></p>
+                    <p className='nurses_profile_header__other__rating__p d-flex justify-content-center align-items-center'><Fa.FaStar className='nurses_profile_rating_star' />&nbsp;{props.nurse.rating}/5</p>
                 </div>
             </div>
         </div>

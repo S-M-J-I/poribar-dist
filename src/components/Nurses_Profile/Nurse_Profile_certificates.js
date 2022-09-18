@@ -1,6 +1,7 @@
 import React from 'react'
 import Certificates from './Blocks/Certificates'
 function Nurse_Profile_certificates() {
+    const [isShown, setIsShown] = React.useState(false)
     const exp=[{
         coursename:'Be a better caregiver',
         company:'UdemyUdemy',
@@ -45,10 +46,13 @@ function Nurse_Profile_certificates() {
         </div>
         <div className='nurse_profile_certificates_collapse d-flex justify-content-center align-items-center' onClick={()=>{
                 const element = document.getElementsByClassName("nurse_profile_certificates_body")
-                    element[0].style.maxHeight = "none" 
-                }
-
-                }>{"Show All certificatess"}
+                if(isShown){
+                    element[0].style.maxHeight='500px'
+                }else{
+                    element[0].style.maxHeight = "none"
+                } 
+                    setIsShown(!isShown)
+        }}>{!isShown&&"Show All Certificates"}
         </div>
     </div>
   )

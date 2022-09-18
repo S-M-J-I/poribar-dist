@@ -8,7 +8,7 @@ function Dashboard(props) {
 
     const showBalance = () => {
         if (props.type === 'nurse') {
-            return <AccountsRow balance='70,000' />
+            return <AccountsRow balance={props.user} />
         }
     }
 
@@ -19,7 +19,7 @@ function Dashboard(props) {
                     <Sidebar />
                 </div>
                 <div className='col-sm-8'>
-                    <TopRow user={props.user} />
+                    <TopRow user={props.user} type={props.type}/>
                     {showBalance()}
                     <AppointmentsRow user={props.user} />
                 </div>

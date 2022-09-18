@@ -41,7 +41,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .event_single_page__header__status>*{
-    background-color: rgb(1, 110, 74);
+    /* background-color: rgb(1, 110, 74); */
     padding: 5px 10px;
     color:white;
     border-radius: 15px;

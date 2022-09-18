@@ -1,6 +1,7 @@
 import React from 'react'
 import Education from './Blocks/Education'
 function Nurse_Profile_education() {
+    const [isShown, setIsShown] = React.useState(false)
     const exp=[{
         institutename:'United Medical College',
         program:'MBBS',
@@ -36,10 +37,13 @@ function Nurse_Profile_education() {
         </div>
         <div className='nurse_profile_education_collapse d-flex justify-content-center align-items-center' onClick={()=>{
                 const element = document.getElementsByClassName("nurse_profile_education_body")
-                    element[0].style.maxHeight = "none" 
-                }
-
-                }>{"Show All educations"}
+                if(isShown){
+                    element[0].style.maxHeight='500px'
+                }else{
+                    element[0].style.maxHeight = "none"
+                } 
+                    setIsShown(!isShown)
+        }}>{!isShown&&"Show All Education"}
         </div>
     </div>
   )
