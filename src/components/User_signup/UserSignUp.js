@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 // import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
 import firebase from '../../firebase/firebase'
 import usersignupimg from '../../resources/images/usersignupimg.png'
+import nursesignupimg from '../../resources/images/nurse_signup_cover.jpg'
 import '../../styles/UserSignUp_styles.css'
 import * as Fa from 'react-icons/fa'
-import {getAuth,onAuthStateChanged} from 'firebase/auth'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 function UserSignUp(props) {
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
@@ -21,11 +22,11 @@ function UserSignUp(props) {
     const [gender, setGender] = React.useState('')
     const register = (e) => {
         e.preventDefault()
-        const element = document.getElementById('registration_form') 
+        const element = document.getElementById('registration_form')
         const formData = new FormData(element)
         formData.append('gender', gender)
         console.log(gender)
-        const url = (props.type==='nurse'?'http://localhost:3030/api/auth/nurse/signup':'http://localhost:3030/api/auth/user/signup');
+        const url = (props.type === 'nurse' ? 'http://localhost:3030/api/auth/nurse/signup' : 'http://localhost:3030/api/auth/user/signup');
         fetch(url, {
             method: 'POST',
             mode: 'cors',
@@ -34,7 +35,7 @@ function UserSignUp(props) {
             console.log(data)
             if (data.status === 'success') {
                 alert('User registered successfully')
-                window.location='/login'
+                window.location = '/login'
             }
         }).catch(err => console.log(err))
     }
@@ -50,9 +51,9 @@ function UserSignUp(props) {
             }
         })
     }, [])
-    
+
     React.useEffect(() => {
-        if(avatar){
+        if (avatar) {
             const element = document.getElementById('profile_pic')
             element.src = URL.createObjectURL(avatar)
             element.hidden = false;
@@ -64,7 +65,7 @@ function UserSignUp(props) {
             <div className='signup_bg d-flex justify-content-center align-items-center'>
                 <div className='signup_body d-flex'>
                     <div className="signup_body_container">
-                        <img src={usersignupimg} />
+                        <img src={props.type === 'nurse' ? nursesignupimg : usersignupimg} />
                     </div>
                     <div className='signup_body_container d-flex justify-content-center align-items-center'>
 
@@ -72,7 +73,7 @@ function UserSignUp(props) {
                             <div className='d-flex justify-content-center align-items-center py-2'>
                                 <h2>Poribar</h2>
                             </div>
-                            <form className='px-5 py-3' id='registration_form' onSubmit={(e)=> register(e)}>
+                            <form className='px-5 py-3' id='registration_form' onSubmit={(e) => register(e)}>
                                 <div class="form-group pb-1">
                                     <label for="exampleInputEmail1">Name</label>
                                     <input type="text" class="form-control" name='name' required id="exampleInputEmail1" aria-describedby="nameHelp" onChange={(e) => setUsername(e.target.value)} />
@@ -98,7 +99,7 @@ function UserSignUp(props) {
                                 </div>
                                 <div class="form-group pb-1">
                                     <label for="exampleInputEmail1">Blood Group</label>
-                                    <input type="text" class="form-control" name='blood_group' required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your blood group"  onChange={(e) => setBloodGroup(e.target.value)} />
+                                    <input type="text" class="form-control" name='blood_group' required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your blood group" onChange={(e) => setBloodGroup(e.target.value)} />
 
                                 </div>
                                 <div className='d-flex justify-content-center pb-1'>
@@ -106,19 +107,19 @@ function UserSignUp(props) {
                                         <label>Gender</label>
                                     </div>
                                     <div class="form-check signup_form_body_container_radio_btn">
-                                        <input class="form-check-input " type="radio"  id="male" onClick={()=> setGender('male')} />
+                                        <input class="form-check-input " type="radio" id="male" onClick={() => setGender('male')} />
                                         <label class="form-check-label" for="male" >
                                             Male
                                         </label>
                                     </div>
                                     <div class="form-check signup_form_body_container_radio_btn">
-                                        <input class="form-check-input" type="radio"  id="female" onClick={()=> setGender('female')} />
+                                        <input class="form-check-input" type="radio" id="female" onClick={() => setGender('female')} />
                                         <label class="form-check-label" for="female">
                                             Female
                                         </label>
                                     </div>
                                     <div class="form-check signup_form_body_container_radio_btn">
-                                        <input class="form-check-input" type="radio"  id="others" onClick={()=> setGender('others')} />
+                                        <input class="form-check-input" type="radio" id="others" onClick={() => setGender('others')} />
                                         <label class="form-check-label" for="others">
                                             Others
                                         </label>
@@ -137,13 +138,13 @@ function UserSignUp(props) {
                                 <label class="form-label" for="customFile">Set your profile picture</label>
                                 <div className='d-flex justify-content-center align-items-center'>
                                     <div class='profile_pic_container'>
-                                        <img src={avatar} style={{width:'100px', height: '100px',objectFit: 'cover'}} hidden id='profile_pic'/>
+                                        <img src={avatar} style={{ width: '100px', height: '100px', objectFit: 'cover' }} hidden id='profile_pic' />
                                         <div className='profile_pic_container_icon d-flex justify-content-center'>
-                                            <Fa.FaPlus color='black' size='30px' className='profile_pic_plus_icon' onClick={(e)=>setProfilePic(e)}/>
+                                            <Fa.FaPlus color='black' size='30px' className='profile_pic_plus_icon' onClick={(e) => setProfilePic(e)} />
                                         </div>
                                     </div>
-                                    <input type="file" name='avatar' class="form-control" id="customFile" onChange={(e) => setAvatar(e.target.files[0])} hidden/>
-                                    </div>
+                                    <input type="file" name='avatar' class="form-control" id="customFile" onChange={(e) => setAvatar(e.target.files[0])} hidden />
+                                </div>
                                 <div className='signup_form_body_container_submit_btn d-flex justify-content-center pt-4'>
                                     <button type="submit" class="btn btn-success">Sign Up</button>
                                 </div>

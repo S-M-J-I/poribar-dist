@@ -30,7 +30,7 @@ import Event_Single_page from './components/Eventpage/Event_Single_page/Event_Si
 import Dashboard from './components/User_dashboard/Dashboard';
 import Profilepage from './components/User_Profile/Profilepage';
 import All_Nurses_Profile from './components/All_Nurses_profile/All_Nurses_Profile';
-import UserSignUp from './components/User_Signup/UserSignUp';
+import UserSignUp from './components/User_signup/UserSignUp';
 import AllAppointments from './components/User_dashboard/AllAppointments';
 import ReportsDashboardIndividuals from './components/Reports/ReportsDashboardIndividual';
 import Settings_Dashboard from './components/User_dashboard/Settings_Dashboard';
