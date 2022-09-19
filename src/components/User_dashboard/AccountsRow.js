@@ -1,21 +1,31 @@
 import React from 'react'
 import { useEffect } from 'react'
-
+import firebase from '../../firebase/firebase'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 function AccountsRow(props) {
     const [balance, setBalance] = React.useState(0)
     console.log(props.user)
+    React.useEffect(() => {
+        const auth = getAuth(firebase)
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                fetch(`http://localhost:3030/api/auth/nurse/profile/${user.uid}`, {
+                    method: 'post',
+                    mode: 'cors'
+                }).then(res => res.json())
+                    .then(data => {
+                        setBalance(data.balance)
+                        console.log(data.balance)
+                    })
+                    .catch(err => {
+                        alert(err)
+                    })
+            }
+        })
+    }, [])
     useEffect(() => {
-        if(props.user){
-            fetch(`http://localhost:3030/api/auth/nurse/profile/${props.user.uid}`, {
-                method: 'post',
-                mode: 'cors'
-            }).then(res => res.json())
-            .then(data => {
-                setBalance(data.balance)
-            })
-            .catch(err => {
-                alert(err)
-            })
+        if (props.user) {
+
         }
     }, [])
 

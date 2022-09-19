@@ -43,10 +43,6 @@ export default function Navbar(props) {
                       Medical Report Tracker
                     </Link>
                   </li>
-                  <li><hr className="dropdown-divider" /></li>
-                  <li><a className="dropdown-item" href="/">Review Nurses</a></li>
-                  <li><hr className="dropdown-divider" /></li>
-                  <li><a className="dropdown-item" href="/">Play Interactive Games</a></li>
                 </ul>
               </li>
               <li className="nav-item">

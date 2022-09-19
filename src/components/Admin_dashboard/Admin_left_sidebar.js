@@ -9,34 +9,16 @@ function Admin_left_sidebar(props) {
             </div>
             <div className='admin-left-sidebar__menu'>
                 <ul>
-                    <li onClick={()=> props.setPanel('dashboard')}>
+                    <li onClick={() => props.setPanel('dashboard')}>
                         <a >
                             <Fa.FaHome />
                             Dashboard
                         </a>
                     </li>
-                    <li onClick={()=> props.setPanel('user_search')}>
+                    <li onClick={() => props.setPanel('user_search')}>
                         <a >
                             <Fa.FaUser />
                             Users
-                        </a>
-                    </li>
-                    <li onClick={()=> props.setPanel('transaction_search')}>
-                        <a>
-                            <Fa.FaBook />
-                           Transactions
-                        </a>
-                    </li>
-                    <li>
-                        <a href='#'>
-                            <Fa.FaRegAddressBook />
-                            Reports
-                        </a>
-                    </li>
-                    <li>
-                        <a href='#'>
-                            <Fa.FaCog />
-                            Settings
                         </a>
                     </li>
                 </ul>

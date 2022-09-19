@@ -4,12 +4,24 @@ import Reviews from '../Reviews/Reviews'
 import * as Fa from 'react-icons/fa'
 import { useState } from 'react'
 import { useEffect } from 'react'
-
+import firebase from '../../firebase/firebase'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 // import Nurse_appointment from '../Nurse_appointment/Nurse_appointment'
 import Nurse_Appointment from '../Nurse_Appointment/Nurse_Appointment'
 function Nurse_Profile_header(props) {
     const [showreview, setShowreview] = useState(false);
+    const [isOwn, setIsOwn] = React.useState(false)
 
+    useEffect(() => {
+        const auth = getAuth(firebase)
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                if (user.uid === props.nurse.uid) {
+                    setIsOwn(true)
+                }
+            }
+        })
+    }, [])
     useEffect(() => {
         const closeWindow = (e) => {
             if (e.target.classList.contains("nurse_reviews")) {
@@ -52,7 +64,7 @@ function Nurse_Profile_header(props) {
     )
     return (
         <div className='nurses_profile_header'>
-            {showreview ? <Reviews user={props.nurse}/> : <></>}
+            {showreview ? <Reviews user={props.nurse} /> : <></>}
             {shownurse_appointment ? <Nurse_Appointment nurse={props.nurse} /> : <></>}
             <div className='nurses_profile_header__cover_image'>
                 <img src='https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fHBlcnNvbnxlbnwwfHwwfHw%3D&w=1000&q=80' alt='cover_image' />
@@ -62,7 +74,8 @@ function Nurse_Profile_header(props) {
             </div>
             <div className='nurses_profile_header__btns d-flex justify-content-end align-items-top'>
                 <div className='nurses_profile_header__btns_btn_container pt-2 px-2'>
-                    <button className=' btn btn-outline-success' onClick={() => { setShownurse_appointment(true) }}>Request for appointment</button>
+                    {!isOwn && <button className=' btn btn-outline-success' onClick={() => { setShownurse_appointment(true) }}>Request for appointment</button>}
+
                     <button className=' btn btn-outline-success' onClick={() => { setShowreview(true) }}>Reviews</button>
                 </div>
             </div>
