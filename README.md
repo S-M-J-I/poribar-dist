@@ -6,20 +6,5 @@ run the following commands
 >
 > **npm run start**
 
-
-## Endpoints
-> **landing page: /**
->
-> **admin dashboard: /dashboard**
->
-> **user dashboard: /user_dashboard**
->
-> **nurse dashboard: /nurse_dashboard**
->
-> **reviews: /reviews**
->
-> **nurse_profile: /nurse_profile**
->
-> **nurse appointment: /nurse_appointment**
->
-> **nurse appointment payment form: /nurse_appointment_form**
+## Homepage
+![homepage-1](/src//resources/readme/homepage-1.jpg)
