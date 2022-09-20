@@ -35,7 +35,7 @@ export default function Profilepage(props) {
         const form = new FormData();
         form.append('appointment_id', props.appointment._id);
         fetch('http://localhost:3030/api/appointments/accept', { method: 'POST', mode: 'cors', body: form }).then(data => data.json()).then(data => {
-            if (data.status=='success') {
+            if (data.status == 'success') {
                 alert('Appointment Accepted')
                 window.location = '/dashboard/appointments'
             }
@@ -47,7 +47,7 @@ export default function Profilepage(props) {
         const form = new FormData();
         form.append('appointment_id', props.appointment._id);
         fetch('http://localhost:3030/api/appointments/reject', { method: 'POST', mode: 'cors', body: form }).then(data => data.json()).then(data => {
-            if (data.status=='success') {
+            if (data.status == 'success') {
                 alert('Appointment Rejected')
                 window.location = '/dashboard/appointments'
             }
@@ -59,7 +59,7 @@ export default function Profilepage(props) {
         const form = new FormData();
         form.append('appointment_id', props.appointment._id);
         fetch('http://localhost:3030/api/appointments/finish', { method: 'POST', mode: 'cors', body: form }).then(data => data.json()).then(data => {
-            if (data.status=='success') {
+            if (data.status == 'success') {
                 alert('Appointment Completed')
                 window.location = '/dashboard/appointments'
             }
@@ -102,38 +102,38 @@ export default function Profilepage(props) {
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Phone Number</label>
-                                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={Userinfo.phone} readOnly />
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={Userinfo.phone} readOnly />
                             </div>
 
                             <div className='d-flex justify-content-center'>
-                                {props.user.type === 'user' && props.appointment.status==='accepted' &&
-                                <>
-                                    <button type="submit" class="btn btn-success" onClick={() => onClickAdd()}>Add medical report</button>
-                                    &nbsp;
-                                    <button type="submit" class="btn btn-success" onClick={() => onClickShowReports()}>Show Reports</button></>
+                                {props.user.type === 'user' && props.appointment.status === 'accepted' &&
+                                    <>
+                                        <button type="submit" class="btn btn-success" onClick={() => onClickAdd()}>Add medical report</button>
+                                        &nbsp;
+                                        <button type="submit" class="btn btn-success" onClick={() => onClickShowReports()}>Show Reports</button></>
                                 }
-                                {props.user.type === 'user' && props.appointment.status ==='pending' && 
-                                <>
-                                    <button type="submit" class="btn btn-success" onClick={() => onClickAccept()}>Accept</button>
-                                    &nbsp;
-                                    <button type="submit" class="btn btn-danger" onClick={() => onClickReject()}>Reject</button></>
+                                {props.user.type === 'user' && props.appointment.status === 'pending' &&
+                                    <>
+                                        <button type="submit" class="btn btn-success" onClick={() => onClickAccept()}>Accept</button>
+                                        &nbsp;
+                                        <button type="submit" class="btn btn-danger" onClick={() => onClickReject()}>Reject</button></>
                                 }
                                 {
                                     props.user.type === 'nurse' &&
                                     <button type="submit" class="btn btn-success" onClick={() => onClickShow()}>Show Reports</button>
                                 }
-                                
+
                             </div>
-                                     
+
                         </div>
                         <br></br>
-                        {props.user.type === 'user' && props.appointment.status =='accepted' && <>
+                        {props.user.type === 'user' && props.appointment.status == 'accepted' && <>
                             <button type="submit" class="btn btn-success" onClick={() => onClickComplete()}>Completed?</button></>
-                            }  
+                        }
                     </div>
-                            
+
                 </div>
-                
+
             </div>
         </div>
     );
